@@ -2,26 +2,80 @@ const questions = [
   {
     war: "Second Boer War",
     year: 1900,
-    sideA: "Britain",
-    sideB: "Boers"
+    sides: {
+      A: {
+        name: "Britain",
+        scores: {
+          imperialism: 2,
+          interventionism: 2,
+          statePower: 1,
+          revolution: 0
+        }
+      },
+      B: {
+        name: "Boers",
+        scores: {
+          imperialism: -2,
+          interventionism: -1,
+          statePower: 1,
+          revolution: 1
+        }
+      }
+    }
   },
   {
     war: "Boxer Rebellion",
     year: 1900,
-    sideA: "Eight-Nation Alliance",
-    sideB: "Qing China"
+    sides: {
+      A: {
+        name: "Eight-Nation Alliance",
+        scores: {
+          imperialism: 2,
+          interventionism: 2,
+          statePower: 1,
+          revolution: 0
+        }
+      },
+      B: {
+        name: "Qing China",
+        scores: {
+          imperialism: -2,
+          interventionism: -1,
+          statePower: 1,
+          revolution: 1
+        }
+      }
+    }
   },
   {
     war: "Anglo-Aro War",
     year: 1901,
-    sideA: "Britain",
-    sideB: "Aro Confederacy"
+    sides: {
+      A: {
+        name: "Britain",
+        scores: {
+          imperialism: 2,
+          interventionism: 2,
+          statePower: 1,
+          revolution: 0
+        }
+      },
+      B: {
+        name: "Aro Confederacy",
+        scores: {
+          imperialism: -2,
+          interventionism: -1,
+          statePower: 1,
+          revolution: 1
+        }
+      }
+    }
   }
 ];
 
 let current = 0;
 
-// 🧠 MULTI-AXIS SCORE SYSTEM
+// 🧠 CORE SCORES
 let scores = {
   imperialism: 0,
   interventionism: 0,
@@ -29,14 +83,25 @@ let scores = {
   statePower: 0
 };
 
+// answer scale (8values-style)
 const choices = [
-  { text: "Strongly Side A", value: 3 },
-  { text: "Somewhat Side A", value: 2 },
-  { text: "Slightly Side A", value: 1 },
-  { text: "Neutral", value: 0 },
-  { text: "Slightly Side B", value: 1 },
-  { text: "Somewhat Side B", value: 2 },
-  { text: "Strongly Side B", value: 3 }
+  { text: "Strongly Side A", index: 0 },
+  { text: "Somewhat Side A", index: 1 },
+  { text: "Slightly Side A", index: 2 },
+  { text: "Neutral", index: 3 },
+  { text: "Slightly Side B", index: 4 },
+  { text: "Somewhat Side B", index: 5 },
+  { text: "Strongly Side B", index: 6 }
+];
+
+const colors = [
+  "#1b5e20",
+  "#2e7d32",
+  "#66bb6a",
+  "#9e9e9e",
+  "#ef9a9a",
+  "#e53935",
+  "#b71c1c"
 ];
 
 function loadQuestion() {
@@ -51,12 +116,14 @@ function loadQuestion() {
   const container = document.getElementById("answers");
   container.innerHTML = "";
 
-  choices.forEach(choice => {
+  choices.forEach((choice) => {
     const btn = document.createElement("button");
+
     btn.innerText = choice.text;
+    btn.style.background = colors[choice.index];
 
     btn.onclick = () => {
-      applyScore(q, choice);
+      applyScore(q, choice.index);
       current++;
 
       if (current < questions.length) {
@@ -70,43 +137,60 @@ function loadQuestion() {
   });
 }
 
-function applyScore(q, choice) {
-  // 🧠 CORE LOGIC (THIS is where expansion happens later)
+function applyScore(q, index) {
+  let side = null;
 
-  // Side A = generally state/establishment side in your dataset
-  // Side B = generally resistance/rebel/anti-imperial side
+  if (index < 3) side = "A";
+  else if (index > 3) side = "B";
+  else return;
 
-  if (choice.text.includes("Side A")) {
-    scores.imperialism += 1;
-    scores.interventionism += 1;
-    scores.statePower += 1;
+  const data = q.sides[side].scores;
+
+  for (let key in data) {
+    scores[key] += data[key];
   }
+}
 
-  if (choice.text.includes("Side B")) {
-    scores.imperialism -= 1;
-    scores.interventionism -= 1;
-    scores.statePower -= 1;
-    scores.revolution += 1;
-  }
-
-  if (choice.text === "Neutral") return;
+// convert -max..+max → 0–100%
+function toPercent(value, max) {
+  let percent = ((value + max) / (2 * max)) * 100;
+  return Math.max(0, Math.min(100, percent));
 }
 
 function showResults() {
-  const leftRight =
-    (scores.revolution * 2)
-    - (scores.imperialism)
-    - (scores.interventionism);
+  const max = questions.length * 3;
+
+  const imperialismPct = toPercent(scores.imperialism, max);
+  const interventionPct = toPercent(scores.interventionism, max);
+  const revolutionPct = toPercent(scores.revolution, max);
+  const statePct = toPercent(scores.statePower, max);
 
   document.getElementById("question").innerText = "Results";
 
   document.getElementById("answers").innerHTML = `
-    <p><b>Imperialism:</b> ${scores.imperialism}</p>
-    <p><b>Interventionism:</b> ${scores.interventionism}</p>
-    <p><b>Revolution:</b> ${scores.revolution}</p>
-    <p><b>State Power:</b> ${scores.statePower}</p>
-    <hr>
-    <p><b>Left ↔ Right Score:</b> ${leftRight}</p>
+    <h3>Imperialism ↔ Anti-Imperialism</h3>
+    <div style="background:#ddd;height:18px;border-radius:10px;">
+      <div style="width:${imperialismPct}%;height:100%;background:#4caf50;border-radius:10px;"></div>
+    </div>
+    <p>${imperialismPct.toFixed(1)}%</p>
+
+    <h3>Interventionism ↔ Isolationism</h3>
+    <div style="background:#ddd;height:18px;border-radius:10px;">
+      <div style="width:${interventionPct}%;height:100%;background:#2196f3;border-radius:10px;"></div>
+    </div>
+    <p>${interventionPct.toFixed(1)}%</p>
+
+    <h3>Revolution ↔ Stability</h3>
+    <div style="background:#ddd;height:18px;border-radius:10px;">
+      <div style="width:${revolutionPct}%;height:100%;background:#f44336;border-radius:10px;"></div>
+    </div>
+    <p>${revolutionPct.toFixed(1)}%</p>
+
+    <h3>State Power</h3>
+    <div style="background:#ddd;height:18px;border-radius:10px;">
+      <div style="width:${statePct}%;height:100%;background:#9c27b0;border-radius:10px;"></div>
+    </div>
+    <p>${statePct.toFixed(1)}%</p>
   `;
 
   document.getElementById("progress").innerText = "Finished";
