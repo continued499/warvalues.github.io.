@@ -20,7 +20,6 @@ const questions = [
 ];
 
 let current = 0;
-let answersLog = [];
 
 const choices = [
   { text: "Strongly Side A", value: -3 },
@@ -54,38 +53,19 @@ function loadQuestion() {
     btn.innerText = label;
 
     btn.onclick = () => {
-      answersLog[current] = choice.value;
       current++;
 
       if (current < questions.length) {
         loadQuestion();
       } else {
-        document.body.innerHTML = "<h1>Results not built yet</h1>";
+        document.getElementById("question").innerText = "Finished!";
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("progress").innerText = "";
       }
     };
 
     container.appendChild(btn);
   });
-
-  addBackButton();
-}
-
-function addBackButton() {
-  const container = document.getElementById("answers");
-
-  const backBtn = document.createElement("button");
-  backBtn.innerText = "← Back";
-  backBtn.style.marginTop = "10px";
-  backBtn.style.background = "#111";
-
-  backBtn.onclick = () => {
-    if (current > 0) {
-      current--;
-      loadQuestion();
-    }
-  };
-
-  container.appendChild(backBtn);
 }
 
 window.onload = loadQuestion;
