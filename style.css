@@ -144,7 +144,6 @@ function showResults() {
 
   document.getElementById("progress").innerText = "Finished";
 }
-
 window.onload = loadQuestion;
 #answers {
   max-width: 650px;
@@ -168,4 +167,5 @@ h3 {
   height: 100%;
   border-radius: 10px;
 }
+
          
