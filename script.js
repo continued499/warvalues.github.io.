@@ -75,24 +75,12 @@ const questions = [
 
 let current = 0;
 
-// 🧠 CORE SCORES
 let scores = {
   imperialism: 0,
   interventionism: 0,
   revolution: 0,
   statePower: 0
 };
-
-// answer scale (8values-style)
-const choices = [
-  { text: "Strongly Side A", index: 0 },
-  { text: "Somewhat Side A", index: 1 },
-  { text: "Slightly Side A", index: 2 },
-  { text: "Neutral", index: 3 },
-  { text: "Slightly Side B", index: 4 },
-  { text: "Somewhat Side B", index: 5 },
-  { text: "Strongly Side B", index: 6 }
-];
 
 const colors = [
   "#1b5e20",
@@ -116,14 +104,24 @@ function loadQuestion() {
   const container = document.getElementById("answers");
   container.innerHTML = "";
 
-  choices.forEach((choice) => {
+  const labels = [
+    `Strongly support ${q.sides.A.name}`,
+    `Somewhat support ${q.sides.A.name}`,
+    `Slightly support ${q.sides.A.name}`,
+    "Neutral",
+    `Slightly support ${q.sides.B.name}`,
+    `Somewhat support ${q.sides.B.name}`,
+    `Strongly support ${q.sides.B.name}`
+  ];
+
+  labels.forEach((text, index) => {
     const btn = document.createElement("button");
 
-    btn.innerText = choice.text;
-    btn.style.background = colors[choice.index];
+    btn.innerText = text;
+    btn.style.background = colors[index];
 
     btn.onclick = () => {
-      applyScore(q, choice.index);
+      applyScore(q, index);
       current++;
 
       if (current < questions.length) {
@@ -138,12 +136,9 @@ function loadQuestion() {
 }
 
 function applyScore(q, index) {
-  let side = null;
+  if (index === 3) return; // neutral
 
-  if (index < 3) side = "A";
-  else if (index > 3) side = "B";
-  else return;
-
+  const side = index < 3 ? "A" : "B";
   const data = q.sides[side].scores;
 
   for (let key in data) {
@@ -151,7 +146,6 @@ function applyScore(q, index) {
   }
 }
 
-// convert -max..+max → 0–100%
 function toPercent(value, max) {
   let percent = ((value + max) / (2 * max)) * 100;
   return Math.max(0, Math.min(100, percent));
