@@ -1,66 +1,59 @@
-const questions = [
-  {
-    war: "Second Boer War",
-    year: 1900,
-    sideA: "Britain",
-    sideB: "Boers"
-  },
-  {
-    war: "Boxer Rebellion",
-    year: 1900,
-    sideA: "Eight-Nation Alliance",
-    sideB: "Qing China"
-  },
-  {
-    war: "Anglo-Aro War",
-    year: 1901,
-    sideA: "Britain",
-    sideB: "Aro Confederacy"
-  }
-];
-
-let current = 0;
-
-const choices = [
-  { text: "Strongly Side A", value: -3 },
-  { text: "Somewhat Side A", value: -2 },
-  { text: "Slightly Side A", value: -1 },
-  { text: "Neutral", value: 0 },
-  { text: "Slightly Side B", value: 1 },
-  { text: "Somewhat Side B", value: 2 },
-  { text: "Strongly Side B", value: 3 }
-];
-
-function loadQuestion() {
-  const q = questions[current];
-
-  document.getElementById("question").innerText =
-    `Who do you support in the ${q.war}? (${q.year})`;
-
-  const container = document.getElementById("answers");
-  container.innerHTML = "";
-
-  choices.forEach(c => {
-    const btn = document.createElement("button");
-
-    let label = c.text
-      .replace("Side A", q.sideA)
-      .replace("Side B", q.sideB);
-
-    btn.innerText = label;
-
-    btn.onclick = () => {
-      current++;
-
-      if (current < questions.length) {
-        loadQuestion();
-      } else {
-        document.body.innerHTML = "<h1>Done</h1>";
-      }
-    };
-
-    container.appendChild(btn);
-  });
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: white;
 }
 
-window.onload = loadQuestion;
+.container {
+  text-align: center;
+  padding-top: 40px;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.card {
+  width: 650px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  background: #2c2c2c;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #444;
+  transform: scale(1.02);
+}
+
+#progress {
+  margin-top: 15px;
+  color: #888;
+  font-size: 14px;
+}
