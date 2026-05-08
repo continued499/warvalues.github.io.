@@ -146,3 +146,26 @@ function showResults() {
 }
 
 window.onload = loadQuestion;
+#answers {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+.bar-container {
+  background: #ddd;
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 5px 0 10px 0;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+         
