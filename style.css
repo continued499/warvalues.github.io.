@@ -1,157 +1,64 @@
-const questions = [
-  {
-    war: "Second Boer War",
-    year: 1900,
-    sideA: "Britain",
-    sideB: "Boers"
-  },
-  {
-    war: "Boxer Rebellion",
-    year: 1900,
-    sideA: "Eight-Nation Alliance",
-    sideB: "Qing China"
-  },
-  {
-    war: "Anglo-Aro War",
-    year: 1901,
-    sideA: "Britain",
-    sideB: "Aro Confederacy"
-  }
-];
-
-let current = 0;
-
-// 🧠 CORE SCORING SYSTEM
-let scores = {
-  imperialism: 0,
-  interventionism: 0,
-  revolution: 0,
-  statePower: 0
-};
-
-const choices = [
-  { text: "Strongly Side A", value: 3 },
-  { text: "Somewhat Side A", value: 2 },
-  { text: "Slightly Side A", value: 1 },
-  { text: "Neutral", value: 0 },
-  { text: "Slightly Side B", value: 1 },
-  { text: "Somewhat Side B", value: 2 },
-  { text: "Strongly Side B", value: 3 }
-];
-
-function loadQuestion() {
-  const q = questions[current];
-
-  document.getElementById("question").innerText =
-    `Who do you support in the ${q.war}? (${q.year})`;
-
-  document.getElementById("progress").innerText =
-    `Question ${current + 1} of ${questions.length}`;
-
-  const container = document.getElementById("answers");
-  container.innerHTML = "";
-
-  choices.forEach((choice, index) => {
-    const btn = document.createElement("button");
-
-    btn.innerText = choice.text;
-
-    // 🎨 restore 8values-style colors
-    const colors = [
-      "#1b5e20", // strong A
-      "#2e7d32",
-      "#66bb6a",
-      "#9e9e9e",
-      "#ef9a9a",
-      "#e53935",
-      "#b71c1c"  // strong B
-    ];
-
-    btn.style.background = colors[index];
-
-    btn.onclick = () => {
-      applyScore(choice);
-      current++;
-
-      if (current < questions.length) {
-        loadQuestion();
-      } else {
-        showResults();
-      }
-    };
-
-    container.appendChild(btn);
-  });
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e9e9e9;
+  color: #111;
 }
 
-function applyScore(choice) {
-  // Simple directional scoring model
-
-  if (choice.text.includes("Side A")) {
-    scores.imperialism += 1;
-    scores.interventionism += 1;
-    scores.statePower += 1;
-  }
-
-  if (choice.text.includes("Side B")) {
-    scores.imperialism -= 1;
-    scores.interventionism -= 1;
-    scores.revolution += 1;
-  }
+.container {
+  text-align: center;
+  padding-top: 40px;
 }
 
-// convert to 0–100%
-function toPercent(value, max) {
-  let percent = ((value + max) / (2 * max)) * 100;
-  return Math.max(0, Math.min(100, percent));
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-function showResults() {
-  const max = questions.length * 3;
-
-  const imperialismPct = toPercent(scores.imperialism, max);
-  const interventionPct = toPercent(scores.interventionism, max);
-  const revolutionPct = toPercent(scores.revolution, max);
-  const statePct = toPercent(scores.statePower, max);
-
-  document.getElementById("question").innerText = "Results";
-
-  document.getElementById("answers").innerHTML = `
-    <h3>Imperialism ↔ Anti-Imperialism</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${imperialismPct}%;height:100%;background:#4caf50;border-radius:10px;"></div>
-    </div>
-    <p>${imperialismPct.toFixed(1)}%</p>
-
-    <h3>Interventionism ↔ Isolationism</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${interventionPct}%;height:100%;background:#2196f3;border-radius:10px;"></div>
-    </div>
-    <p>${interventionPct.toFixed(1)}%</p>
-
-    <h3>Revolution ↔ Stability</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${revolutionPct}%;height:100%;background:#f44336;border-radius:10px;"></div>
-    </div>
-    <p>${revolutionPct.toFixed(1)}%</p>
-
-    <h3>State Power</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${statePct}%;height:100%;background:#9c27b0;border-radius:10px;"></div>
-    </div>
-    <p>${statePct.toFixed(1)}%</p>
-  `;
-
-  document.getElementById("progress").innerText = "Finished";
+.card {
+  width: 650px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
-window.onload = loadQuestion;
+
+#question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 #answers {
-  max-width: 650px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-h3 {
-  margin-top: 20px;
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: 0.15s;
+  min-width: 140px;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+#progress {
+  margin-top: 15px;
+  color: #666;
+  font-size: 14px;
 }
 
 .bar-container {
@@ -167,5 +74,3 @@ h3 {
   height: 100%;
   border-radius: 10px;
 }
-
-         
