@@ -3,42 +3,152 @@ const questions = [
     war: "Second Boer War",
     year: 1900,
     sides: {
-      A: {
-        name: "Britain",
-        scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 }
-      },
-      B: {
-        name: "Boers",
-        scores: { leftRight: 1, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 }
-      }
+      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
+      B: { name: "Boers", scores: { leftRight: 1, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 } }
     }
   },
   {
     war: "Boxer Rebellion",
     year: 1900,
     sides: {
-      A: {
-        name: "Eight-Nation Alliance",
-        scores: { leftRight: 1, imperialism: 2, revolutionary: -2, nationalist: 0, interventionist: 2 }
-      },
-      B: {
-        name: "Qing China & Boxers",
-        scores: { leftRight: 0, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 }
-      }
+      A: { name: "Eight-Nation Alliance", scores: { leftRight: 1, imperialism: 2, revolutionary: -2, nationalist: 0, interventionist: 2 } },
+      B: { name: "Qing China & Boxers", scores: { leftRight: 0, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 } }
     }
   },
   {
     war: "Anglo-Aro War",
     year: 1901,
     sides: {
-      A: {
-        name: "Britain",
-        scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 }
-      },
-      B: {
-        name: "Aro Confederacy",
-        scores: { leftRight: 0, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 }
-      }
+      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
+      B: { name: "Aro Confederacy", scores: { leftRight: 0, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 } }
+    }
+  },
+  {
+    war: "British Expedition to Tibet",
+    year: 1903,
+    sides: {
+      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: -1, interventionist: 2 } },
+      B: { name: "Tibet", scores: { leftRight: -1, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 } }
+    }
+  },
+  {
+    war: "Russo-Japanese War",
+    year: 1904,
+    sides: {
+      A: { name: "Tsarist Russia", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 0, interventionist: 1 } },
+      B: { name: "Japan", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 1, interventionist: 1 } }
+    }
+  },
+  {
+    war: "Madagascar War",
+    year: 1904,
+    sides: {
+      A: { name: "France", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: -1, interventionist: 2 } },
+      B: { name: "Madagascar", scores: { leftRight: -1, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 } }
+    }
+  },
+  {
+    war: "Italo-Turkish War",
+    year: 1911,
+    sides: {
+      A: { name: "Italy", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: 1, interventionist: 2 } },
+      B: { name: "Ottomans", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 1, interventionist: -2 } }
+    }
+  },
+  {
+    war: "First Balkan War",
+    year: 1912,
+    sides: {
+      A: { name: "Balkan League", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 2, interventionist: 1 } },
+      B: { name: "Ottomans", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 0, interventionist: -1 } }
+    }
+  },
+  {
+    war: "Second Balkan War",
+    year: 1913,
+    sides: {
+      A: { name: "Bulgaria", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: 1 } },
+      B: { name: "Serbia/Greece/Romania", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: 1 } }
+    }
+  },
+  {
+    war: "World War I",
+    year: 1914,
+    sides: {
+      A: { name: "Austria-Hungary", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 0, interventionist: 2 } },
+      B: { name: "Serbia", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 2, interventionist: -2 } }
+    }
+  },
+  {
+    war: "World War I",
+    year: 1914,
+    sides: {
+      A: { name: "Germany", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 2 } },
+      B: { name: "Belgium", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: -2 } }
+    }
+  },
+  {
+    war: "World War I",
+    year: 1914,
+    sides: {
+      A: { name: "Germany", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 2 } },
+      B: { name: "France", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: -1 } }
+    }
+  },
+  {
+    war: "World War I",
+    year: 1914,
+    sides: {
+      A: { name: "Ottomans", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } },
+      B: { name: "Russia", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 0, interventionist: 1 } }
+    }
+  },
+  {
+    war: "World War I",
+    year: 1914,
+    sides: {
+      A: { name: "Ottomans", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } },
+      B: { name: "Britain", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 0, interventionist: 1 } }
+    }
+  },
+  {
+    war: "Mexican Revolution",
+    year: 1914,
+    sides: {
+      A: { name: "United States", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: 0, interventionist: 2 } },
+      B: { name: "Mexico", scores: { leftRight: -1, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: -2 } }
+    }
+  },
+  {
+    war: "World War I",
+    year: 1914,
+    sides: {
+      A: { name: "Germany", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 2 } },
+      B: { name: "Japan", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 1, interventionist: 1 } }
+    }
+  },
+  {
+    war: "Arab Revolt",
+    year: 1916,
+    sides: {
+      A: { name: "Ottomans", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: -1, interventionist: -1 } },
+      B: { name: "Arabs", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -2 } }
+    }
+  },
+  {
+    war: "Senussi Campaign",
+    year: 1916,
+    sides: {
+      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
+      B: { name: "Senussi", scores: { leftRight: 0, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 } }
+    }
+  },
+  {
+    war: "Russian Revolution",
+    year: 1917,
+    sides: {
+      A: { name: "White Russia", scores: { leftRight: 2, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: -1 } },
+      B: { name: "Soviets", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: -1, interventionist: 1 } }
     }
   }
 ];
