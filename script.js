@@ -5,21 +5,11 @@ const questions = [
     sides: {
       A: {
         name: "Britain",
-        scores: {
-          imperialism: 2,
-          interventionism: 2,
-          statePower: 1,
-          revolution: 0
-        }
+        scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 }
       },
       B: {
         name: "Boers",
-        scores: {
-          imperialism: -2,
-          interventionism: -1,
-          statePower: 1,
-          revolution: 1
-        }
+        scores: { leftRight: 1, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 }
       }
     }
   },
@@ -29,21 +19,11 @@ const questions = [
     sides: {
       A: {
         name: "Eight-Nation Alliance",
-        scores: {
-          imperialism: 2,
-          interventionism: 2,
-          statePower: 1,
-          revolution: 0
-        }
+        scores: { leftRight: 1, imperialism: 2, revolutionary: -2, nationalist: 0, interventionist: 2 }
       },
       B: {
-        name: "Qing China",
-        scores: {
-          imperialism: -2,
-          interventionism: -1,
-          statePower: 1,
-          revolution: 1
-        }
+        name: "Qing China & Boxers",
+        scores: { leftRight: 0, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 }
       }
     }
   },
@@ -53,21 +33,11 @@ const questions = [
     sides: {
       A: {
         name: "Britain",
-        scores: {
-          imperialism: 2,
-          interventionism: 2,
-          statePower: 1,
-          revolution: 0
-        }
+        scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 }
       },
       B: {
         name: "Aro Confederacy",
-        scores: {
-          imperialism: -2,
-          interventionism: -1,
-          statePower: 1,
-          revolution: 1
-        }
+        scores: { leftRight: 0, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 }
       }
     }
   }
@@ -76,10 +46,11 @@ const questions = [
 let current = 0;
 
 let scores = {
+  leftRight: 0,
   imperialism: 0,
-  interventionism: 0,
-  revolution: 0,
-  statePower: 0
+  revolutionary: 0,
+  nationalist: 0,
+  interventionist: 0
 };
 
 const colors = [
@@ -153,10 +124,11 @@ function toPercent(value, max) {
 function showResults() {
   const max = questions.length * 2;
 
+  const leftRightPct = toPercent(scores.leftRight, max);
   const imperialismPct = toPercent(scores.imperialism, max);
-  const interventionPct = toPercent(scores.interventionism, max);
-  const revolutionPct = toPercent(scores.revolution, max);
-  const statePct = toPercent(scores.statePower, max);
+  const revolutionaryPct = toPercent(scores.revolutionary, max);
+  const nationalistPct = toPercent(scores.nationalist, max);
+  const interventionistPct = toPercent(scores.interventionist, max);
 
   function axisLabel(pct, leftLabel, rightLabel) {
     if (pct > 60) return leftLabel;
@@ -187,10 +159,11 @@ function showResults() {
 
   document.getElementById("answers").innerHTML = `
     <div class="wv-results">
-      <div class="wv-axis">${makeBar(imperialismPct, "#c0392b", "#27ae60", "Imperialism", "Anti-Imperialism")}</div>
-      <div class="wv-axis">${makeBar(interventionPct, "#e67e22", "#2980b9", "Interventionism", "Isolationism")}</div>
-      <div class="wv-axis">${makeBar(revolutionPct, "#e74c3c", "#8e44ad", "Revolution", "Stability")}</div>
-      <div class="wv-axis">${makeBar(statePct, "#16a085", "#7f8c8d", "State Power", "Decentralism")}</div>
+      <div class="wv-axis">${makeBar(leftRightPct, "#c0392b", "#3498db", "Right", "Left")}</div>
+      <div class="wv-axis">${makeBar(imperialismPct, "#8e44ad", "#27ae60", "Imperialism", "Anti-Imperialism")}</div>
+      <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary")}</div>
+      <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist")}</div>
+      <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist")}</div>
     </div>
   `;
 }
