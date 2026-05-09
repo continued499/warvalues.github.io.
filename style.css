@@ -32,11 +32,10 @@ h1 {
 
 #answers {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
-  max-width: 900px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
@@ -48,7 +47,8 @@ button {
   font-size: 14px;
   color: white;
   transition: 0.15s;
-  min-width: 140px;
+
+  width: 100%;
 }
 
 button:hover {
