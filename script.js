@@ -116,7 +116,6 @@ function loadQuestion() {
 
   labels.forEach((text, index) => {
     const btn = document.createElement("button");
-
     btn.innerText = text;
     btn.style.background = colors[index];
 
@@ -136,7 +135,7 @@ function loadQuestion() {
 }
 
 function applyScore(q, index) {
-  if (index === 3) return; // neutral
+  if (index === 3) return;
 
   const side = index < 3 ? "A" : "B";
   const data = q.sides[side].scores;
@@ -163,26 +162,26 @@ function showResults() {
 
   document.getElementById("answers").innerHTML = `
     <h3>Imperialism ↔ Anti-Imperialism</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${imperialismPct}%;height:100%;background:#4caf50;border-radius:10px;"></div>
+    <div class="bar-container">
+      <div class="bar-fill" style="width:${imperialismPct}%; background:#4caf50;"></div>
     </div>
     <p>${imperialismPct.toFixed(1)}%</p>
 
     <h3>Interventionism ↔ Isolationism</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${interventionPct}%;height:100%;background:#2196f3;border-radius:10px;"></div>
+    <div class="bar-container">
+      <div class="bar-fill" style="width:${interventionPct}%; background:#2196f3;"></div>
     </div>
     <p>${interventionPct.toFixed(1)}%</p>
 
     <h3>Revolution ↔ Stability</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${revolutionPct}%;height:100%;background:#f44336;border-radius:10px;"></div>
+    <div class="bar-container">
+      <div class="bar-fill" style="width:${revolutionPct}%; background:#f44336;"></div>
     </div>
     <p>${revolutionPct.toFixed(1)}%</p>
 
     <h3>State Power</h3>
-    <div style="background:#ddd;height:18px;border-radius:10px;">
-      <div style="width:${statePct}%;height:100%;background:#9c27b0;border-radius:10px;"></div>
+    <div class="bar-container">
+      <div class="bar-fill" style="width:${statePct}%; background:#9c27b0;"></div>
     </div>
     <p>${statePct.toFixed(1)}%</p>
   `;
