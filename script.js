@@ -151,42 +151,48 @@ function toPercent(value, max) {
 }
 
 function showResults() {
-  const max = questions.length * 3;
+  const max = questions.length * 2;
 
   const imperialismPct = toPercent(scores.imperialism, max);
   const interventionPct = toPercent(scores.interventionism, max);
   const revolutionPct = toPercent(scores.revolution, max);
   const statePct = toPercent(scores.statePower, max);
 
+  function axisLabel(pct, leftLabel, rightLabel) {
+    if (pct > 60) return leftLabel;
+    if (pct < 40) return rightLabel;
+    return "Balanced";
+  }
+
+  function makeBar(pct, leftColor, rightColor, leftLabel, rightLabel) {
+    const right = (100 - pct).toFixed(1);
+    const left = pct.toFixed(1);
+    return `
+      <div class="wv-axis-title">
+        ${leftLabel} Axis: <span>${axisLabel(pct, leftLabel, rightLabel)}</span>
+      </div>
+      <div class="wv-bar-row">
+        <div class="wv-label-left">${leftLabel}</div>
+        <div class="wv-bar-wrap">
+          <div class="wv-bar-a" style="width:${left}%; background:${leftColor};">${left}%</div>
+          <div class="wv-bar-b" style="width:${right}%; background:${rightColor};">${right}%</div>
+        </div>
+        <div class="wv-label-right">${rightLabel}</div>
+      </div>
+    `;
+  }
+
   document.getElementById("question").innerText = "Results";
+  document.getElementById("progress").innerText = "Finished";
 
   document.getElementById("answers").innerHTML = `
-    <h3>Imperialism ↔ Anti-Imperialism</h3>
-    <div class="bar-container">
-      <div class="bar-fill" style="width:${imperialismPct}%; background:#4caf50;"></div>
+    <div class="wv-results">
+      <div class="wv-axis">${makeBar(imperialismPct, "#c0392b", "#27ae60", "Imperialism", "Anti-Imperialism")}</div>
+      <div class="wv-axis">${makeBar(interventionPct, "#e67e22", "#2980b9", "Interventionism", "Isolationism")}</div>
+      <div class="wv-axis">${makeBar(revolutionPct, "#e74c3c", "#8e44ad", "Revolution", "Stability")}</div>
+      <div class="wv-axis">${makeBar(statePct, "#16a085", "#7f8c8d", "State Power", "Decentralism")}</div>
     </div>
-    <p>${imperialismPct.toFixed(1)}%</p>
-
-    <h3>Interventionism ↔ Isolationism</h3>
-    <div class="bar-container">
-      <div class="bar-fill" style="width:${interventionPct}%; background:#2196f3;"></div>
-    </div>
-    <p>${interventionPct.toFixed(1)}%</p>
-
-    <h3>Revolution ↔ Stability</h3>
-    <div class="bar-container">
-      <div class="bar-fill" style="width:${revolutionPct}%; background:#f44336;"></div>
-    </div>
-    <p>${revolutionPct.toFixed(1)}%</p>
-
-    <h3>State Power</h3>
-    <div class="bar-container">
-      <div class="bar-fill" style="width:${statePct}%; background:#9c27b0;"></div>
-    </div>
-    <p>${statePct.toFixed(1)}%</p>
   `;
-
-  document.getElementById("progress").innerText = "Finished";
 }
 
 window.onload = loadQuestion;
