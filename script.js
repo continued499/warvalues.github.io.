@@ -72,7 +72,7 @@ const questions = [
     }
   },
   {
-    war: "World War I",
+    war: "Serbian Campaign",
     year: 1914,
     sides: {
       A: { name: "Austria-Hungary", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 0, interventionist: 2 } },
@@ -80,7 +80,7 @@ const questions = [
     }
   },
   {
-    war: "World War I",
+    war: "Invasion of Belgium",
     year: 1914,
     sides: {
       A: { name: "Germany", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 2 } },
@@ -88,7 +88,7 @@ const questions = [
     }
   },
   {
-    war: "World War I",
+    war: "Western Front",
     year: 1914,
     sides: {
       A: { name: "Germany", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 2 } },
@@ -96,7 +96,7 @@ const questions = [
     }
   },
   {
-    war: "World War I",
+    war: "Caucasus Campaign",
     year: 1914,
     sides: {
       A: { name: "Ottomans", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } },
@@ -104,7 +104,7 @@ const questions = [
     }
   },
   {
-    war: "World War I",
+    war: "Mesopotamia Campaign",
     year: 1914,
     sides: {
       A: { name: "Ottomans", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } },
@@ -120,7 +120,7 @@ const questions = [
     }
   },
   {
-    war: "World War I",
+    war: "Siege of Tsingtao",
     year: 1914,
     sides: {
       A: { name: "Germany", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 2 } },
@@ -243,6 +243,51 @@ function showResults() {
   const nationalistPct = toPercent(scores.nationalist, max);
   const interventionistPct = toPercent(scores.interventionist, max);
 
+  const ideologies = [
+    { name: "Bolshevism",               scores: { leftRight: -2, imperialism: -1, revolutionary: 2,  nationalist: -1, interventionist: 1  }},
+    { name: "Trotskyism",               scores: { leftRight: -2, imperialism: -2, revolutionary: 2,  nationalist: -2, interventionist: 2  }},
+    { name: "Maoism",                   scores: { leftRight: -2, imperialism: -2, revolutionary: 2,  nationalist: 1,  interventionist: -1 }},
+    { name: "Marxism",                  scores: { leftRight: -2, imperialism: -2, revolutionary: 2,  nationalist: -1, interventionist: 0  }},
+    { name: "Strasserism",              scores: { leftRight: 0,  imperialism: -1, revolutionary: 2,  nationalist: 2,  interventionist: 1  }},
+    { name: "National Bolshevism",      scores: { leftRight: 0,  imperialism: 0,  revolutionary: 1,  nationalist: 2,  interventionist: 1  }},
+    { name: "Classical Fascism",        scores: { leftRight: 1,  imperialism: 2,  revolutionary: 2,  nationalist: 2,  interventionist: 2  }},
+    { name: "National Socialism",       scores: { leftRight: 1,  imperialism: 1,  revolutionary: 2,  nationalist: 2,  interventionist: 2  }},
+    { name: "Falangism",                scores: { leftRight: 1,  imperialism: 0,  revolutionary: -1, nationalist: 2,  interventionist: 1  }},
+    { name: "Clerical Fascism",         scores: { leftRight: 1,  imperialism: 0,  revolutionary: -2, nationalist: 2,  interventionist: 0  }},
+    { name: "Social Democracy",         scores: { leftRight: -1, imperialism: -1, revolutionary: 0,  nationalist: 0,  interventionist: 0  }},
+    { name: "Liberal Internationalism", scores: { leftRight: 0,  imperialism: 0,  revolutionary: 0,  nationalist: -1, interventionist: 2  }},
+    { name: "Centrism",                 scores: { leftRight: 0,  imperialism: 0,  revolutionary: 0,  nationalist: 0,  interventionist: 0  }},
+    { name: "Liberal Conservatism",     scores: { leftRight: 1,  imperialism: 1,  revolutionary: -1, nationalist: 0,  interventionist: 1  }},
+    { name: "Christian Democracy",      scores: { leftRight: 1,  imperialism: -1, revolutionary: -1, nationalist: 1,  interventionist: 0  }},
+    { name: "Classical Conservatism",   scores: { leftRight: 1,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
+    { name: "Reactionary",              scores: { leftRight: 2,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
+    { name: "Paleoconservatism",        scores: { leftRight: 1,  imperialism: -2, revolutionary: -1, nationalist: 2,  interventionist: -2 }},
+    { name: "Libertarianism",           scores: { leftRight: 1,  imperialism: -2, revolutionary: 0,  nationalist: 0,  interventionist: -2 }},
+    { name: "Neoconservatism",          scores: { leftRight: 1,  imperialism: 2,  revolutionary: 0,  nationalist: 0,  interventionist: 2  }},
+    { name: "Neoliberalism",            scores: { leftRight: 1,  imperialism: 1,  revolutionary: 0,  nationalist: -1, interventionist: 1  }},
+  ];
+
+  const axisKeys = ["leftRight", "imperialism", "revolutionary", "nationalist", "interventionist"];
+
+  const userScoresNorm = {
+    leftRight:       (leftRightPct / 50) - 1,
+    imperialism:     (imperialismPct / 50) - 1,
+    revolutionary:   (revolutionaryPct / 50) - 1,
+    nationalist:     (nationalistPct / 50) - 1,
+    interventionist: (interventionistPct / 50) - 1
+  };
+
+  const ranked = ideologies.map(ideology => {
+    const distance = axisKeys.reduce((sum, key) => {
+      const ideologyNorm = ideology.scores[key] / 2;
+      const diff = userScoresNorm[key] - ideologyNorm;
+      return sum + diff * diff;
+    }, 0);
+    return { name: ideology.name, distance };
+  }).sort((a, b) => a.distance - b.distance);
+
+  const top3 = ranked.slice(0, 3);
+
   function axisLabel(pct, leftLabel, rightLabel) {
     if (pct > 60) return leftLabel;
     if (pct < 40) return rightLabel;
@@ -277,6 +322,12 @@ function showResults() {
       <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary")}</div>
       <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist")}</div>
       <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist")}</div>
+      <div style="margin-top:1.5rem; padding:1rem; border:0.5px solid #ccc; border-radius:8px; background:#f9f9f9;">
+        <div style="font-size:13px; color:#666; margin-bottom:8px;">Closest Ideological Matches</div>
+        <div style="font-size:20px; font-weight:700; color:#111;">🥇 ${top3[0].name}</div>
+        <div style="font-size:16px; color:#333; margin-top:6px;">🥈 ${top3[1].name}</div>
+        <div style="font-size:14px; color:#555; margin-top:6px;">🥉 ${top3[2].name}</div>
+      </div>
     </div>
   `;
 }
