@@ -111,8 +111,11 @@ function applyScore(q, index) {
   const side = index < 3 ? "A" : "B";
   const data = q.sides[side].scores;
 
+  const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
+  const multiplier = multipliers[index];
+
   for (let key in data) {
-    scores[key] += data[key];
+    scores[key] += data[key] * multiplier;
   }
 }
 
