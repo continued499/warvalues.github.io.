@@ -78,3 +78,14 @@ button {
   flex: 0 0 auto;
   min-width: 140px;
 }
+
+.wv-results { padding: 1rem 0; }
+.wv-axis { margin-bottom: 1.5rem; }
+.wv-axis-title { font-size: 15px; font-weight: 500; color: #555; margin-bottom: 6px; }
+.wv-axis-title span { font-weight: 700; color: #111; }
+.wv-bar-row { display: flex; align-items: center; gap: 10px; }
+.wv-label-left { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; width: 110px; text-align: right; color: #c0392b; flex-shrink: 0; }
+.wv-label-right { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; width: 110px; text-align: left; color: #27ae60; flex-shrink: 0; }
+.wv-bar-wrap { flex: 1; height: 28px; display: flex; border-radius: 6px; overflow: hidden; }
+.wv-bar-a { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 12px; font-weight: 700; color: #fff; }
+.wv-bar-b { height: 100%; display: flex; align-items: center; justify-content: flex-start; padding-left: 8px; font-size: 12px; font-weight: 700; color: #fff; }
