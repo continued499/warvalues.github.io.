@@ -1001,7 +1001,7 @@ function showResults() {
     return "Balanced";
   }
 
-  function makeBar(pct, leftColor, rightColor, leftLabel, rightLabel) {
+ function makeBar(pct, leftColor, rightColor, leftLabel, rightLabel, leftIcon, rightIcon) {
     const right = (100 - pct).toFixed(1);
     const left = pct.toFixed(1);
     return `
@@ -1009,12 +1009,12 @@ function showResults() {
         ${leftLabel} Axis: <span>${axisLabel(pct, leftLabel, rightLabel)}</span>
       </div>
       <div class="wv-bar-row">
-        <div class="wv-label-left">${leftLabel}</div>
+        <div class="wv-label-left"><i class="${leftIcon}"></i> ${leftLabel}</div>
         <div class="wv-bar-wrap">
           <div class="wv-bar-a" style="width:${left}%; background:${leftColor};">${left}%</div>
           <div class="wv-bar-b" style="width:${right}%; background:${rightColor};">${right}%</div>
         </div>
-        <div class="wv-label-right">${rightLabel}</div>
+        <div class="wv-label-right">${rightLabel} <i class="${rightIcon}"></i></div>
       </div>
     `;
   }
