@@ -1024,3 +1024,5 @@ function showResults() {
     </div>
   `;
 }
+
+window.onload = loadQuestion;
