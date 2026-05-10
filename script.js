@@ -795,11 +795,11 @@ let current = 0;
 let history = [];
 
 let scores = {
-  leftRight: 0,
-  imperialism: 0,
-  revolutionary: 0,
-  nationalist: 0,
-  interventionist: 0
+  leftRight: { pos: 0, neg: 0 },
+  imperialism: { pos: 0, neg: 0 },
+  revolutionary: { pos: 0, neg: 0 },
+  nationalist: { pos: 0, neg: 0 },
+  interventionist: { pos: 0, neg: 0 }
 };
 
 let maxPossible = {
@@ -902,7 +902,9 @@ function applyScore(q, index) {
   const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
   const multiplier = multipliers[index];
   for (let key in data) {
-    scores[key] += (data[key] || 0) * multiplier * importance;
+    const val = (data[key] || 0) * multiplier * importance;
+    if (val > 0) scores[key].pos += val;
+    else scores[key].neg += val;
   }
 }
 
@@ -914,22 +916,26 @@ function undoScore(q, index) {
   const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
   const multiplier = multipliers[index];
   for (let key in data) {
-    scores[key] -= (data[key] || 0) * multiplier * importance;
+    const val = (data[key] || 0) * multiplier * importance;
+    if (val > 0) scores[key].pos -= val;
+    else scores[key].neg -= val;
   }
 }
 
-function toPercent(value, max) {
-  if (max === 0) return 50;
-  let percent = ((value + max) / (2 * max)) * 100;
-  return Math.max(0, Math.min(100, percent));
+function toPercent(axis) {
+  const pos = scores[axis].pos;
+  const neg = Math.abs(scores[axis].neg);
+  const total = pos + neg;
+  if (total === 0) return 50;
+  return (pos / total) * 100;
 }
 
 function showResults() {
-  const leftRightPct = toPercent(scores.leftRight, maxPossible.leftRight);
-  const imperialismPct = toPercent(scores.imperialism, maxPossible.imperialism);
-  const revolutionaryPct = toPercent(scores.revolutionary, maxPossible.revolutionary);
-  const nationalistPct = toPercent(scores.nationalist, maxPossible.nationalist);
-  const interventionistPct = toPercent(scores.interventionist, maxPossible.interventionist);
+const leftRightPct = toPercent("leftRight");
+const imperialismPct = toPercent("imperialism");
+const revolutionaryPct = toPercent("revolutionary");
+const nationalistPct = toPercent("nationalist");
+const interventionistPct = toPercent("interventionist");
 
   const ideologies = [
     { name: "Bolshevism",               scores: { leftRight: -3, imperialism: 1,  revolutionary: 3,  nationalist: -1, interventionist: 1  }},
