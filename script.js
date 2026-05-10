@@ -13,7 +13,7 @@ const questions = [
     year: 1900,
     summary: "The Boxer Rebellion was an anti-foreign, anti-colonial uprising in China led by the Boxer movement, who sought to expel foreign influence and Christian missionaries from China. The Eight-Nation Alliance of Western powers and Japan intervened militarily to relieve their besieged legations in Beijing. The alliance defeated the Boxers and the Qing government, imposing the humiliating Boxer Protocol which forced China to pay massive reparations and allow foreign troops on Chinese soil.",
     sides: {
-      A: { name: "Eight-Nation Alliance", scores: { leftRight: 1, imperialism: 2, revolutionary: -2, nationalist: 0, interventionist: 2 } },
+      A: { name: "Eight-Nation Alliance", scores: { leftRight: 2, imperialism: 2, revolutionary: -2, nationalist: 0, interventionist: 2 } },
       B: { name: "Qing China & Boxers", scores: { leftRight: 0, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 } }
     }
   },
@@ -32,7 +32,7 @@ const questions = [
     summary: "The British Expedition to Tibet was a military mission launched by British India under Colonel Francis Younghusband, motivated by British fears of growing Russian influence in Tibet and a desire to establish trade relations. Tibet sought to maintain its traditional isolation and autonomy from foreign powers. The expedition reached Lhasa and forced Tibet to sign the Lhasa Convention, opening trade and establishing British influence in the region.",
     sides: {
       A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: -1, interventionist: 2 } },
-      B: { name: "Tibet", scores: { leftRight: -1, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 } }
+      B: { name: "Tibet", scores: { leftRight: 0, imperialism: -2, revolutionary: 0, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -50,7 +50,7 @@ const questions = [
     summary: "The Madagascar War refers to the French suppression of the Menalamba uprising, a resistance movement against French colonial rule established after France annexed Madagascar in 1896. The Malagasy fighters sought to restore the Merina monarchy and expel the French, while France sought to consolidate its colonial administration. France suppressed the rebellion, maintaining its colonial control over the island.",
     sides: {
       A: { name: "France", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: -1, interventionist: 2 } },
-      B: { name: "Madagascar", scores: { leftRight: -1, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 } }
+      B: { name: "Madagascar", scores: { leftRight: 0, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -166,8 +166,8 @@ const questions = [
     year: 1917,
     summary: "The Russian Civil War followed the Bolshevik seizure of power in 1917, pitting the Red Army of the Soviet government against the White Army, a loose coalition of monarchists, liberals, and anti-communist forces supported by foreign intervention. The Bolsheviks sought to consolidate their socialist revolution, while the Whites sought to restore order and reverse the revolution. The Bolsheviks won, establishing the Soviet Union and cementing communist rule over Russia.",
     sides: {
-      A: { name: "White Russia", scores: { leftRight: 2, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: -1 } },
-      B: { name: "Soviets", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: -1, interventionist: 1 } }
+      A: { name: "White Russia", scores: { leftRight: 3, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: -1 } },
+      B: { name: "Soviets", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: -1, interventionist: 1 } }
     }
   },
   {
@@ -184,7 +184,7 @@ const questions = [
     year: 1919,
     summary: "The Greco-Turkish War was fought between Greece and the Turkish nationalist movement following World War I, as Greece sought to incorporate western Anatolia with its large Greek population into a Greater Greece. The Turkish nationalists under Mustafa Kemal sought to establish an independent Turkish state and expel Greek forces from Anatolia. Turkey won decisively, resulting in a massive population exchange that ended the millennia-old Greek presence in Anatolia.",
     sides: {
-      A: { name: "Greece", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 1, interventionist: 2 } },
+      A: { name: "Greece", scores: { leftRight: 1, imperialism: 1, revolutionary: 0, nationalist: 1, interventionist: 2 } },
       B: { name: "Turkey", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -2 } }
     }
   },
@@ -220,8 +220,8 @@ const questions = [
     year: 1927,
     summary: "The first phase of the Chinese Civil War began when Chiang Kai-shek's Nationalist government turned against its Communist allies in the Shanghai Massacre of 1927, launching a campaign to eliminate the Communist Party. The Nationalists sought to unify China under their government and suppress communist revolution, while the Communists sought to establish a socialist state. The Communists survived through guerrilla warfare and the Long March, regrouping for the later conflict.",
     sides: {
-      A: { name: "Nationalists", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
-      B: { name: "Communists", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
+      A: { name: "Nationalists", scores: { leftRight: 3, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
+      B: { name: "Communists", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
     }
   },
   {
@@ -247,7 +247,7 @@ const questions = [
     year: 1936,
     summary: "The Spanish Civil War was fought between the elected Republican government of Spain and Nationalist forces led by General Francisco Franco, who launched a military coup against the republic. The Republicans, supported by the Soviet Union and international volunteers, sought to defend the democratic government and social reforms, while the Nationalists, supported by Nazi Germany and Fascist Italy, sought to establish an authoritarian state. Franco's Nationalists won in 1939, establishing a dictatorship that lasted until 1975.",
     sides: {
-      A: { name: "Republicans", scores: { leftRight: -1, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: -1 } },
+      A: { name: "Republicans", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: -1 } },
       B: { name: "Nationalists", scores: { leftRight: 2, imperialism: 0, revolutionary: -2, nationalist: 2, interventionist: 1 } }
     }
   },
@@ -274,8 +274,8 @@ const questions = [
     year: 1939,
     summary: "The Winter War was fought between the Soviet Union and Finland after the USSR demanded territorial concessions from Finland as a buffer for Leningrad, which Finland refused. The Soviets sought to push Finland's border away from Leningrad and potentially install a communist government, while Finland sought to defend its sovereignty and territorial integrity. Finland inflicted massive casualties on the Soviets but was ultimately forced to cede territory in the Moscow Peace Treaty.",
     sides: {
-      A: { name: "Soviet Union", scores: { leftRight: -2, imperialism: 1, revolutionary: 2, nationalist: -1, interventionist: 2 } },
-      B: { name: "Finland", scores: { leftRight: 1, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
+      A: { name: "Soviet Union", scores: { leftRight: -3, imperialism: 1, revolutionary: 2, nationalist: -1, interventionist: 2 } },
+      B: { name: "Finland", scores: { leftRight: 2, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -284,7 +284,7 @@ const questions = [
     summary: "Germany invaded Poland on September 1, 1939, using the pretext of protecting ethnic Germans in the Danzig corridor and alleged Polish provocations, triggering World War II. Germany sought to destroy the Polish state, gain Lebensraum in the east, and eliminate perceived threats on its eastern border, while Poland sought to defend its sovereignty with promised Allied support. Poland was rapidly defeated and divided between Germany and the Soviet Union, which invaded from the east on September 17.",
     sides: {
       A: { name: "Germany", scores: { leftRight: 2, imperialism: 2, revolutionary: 1, nationalist: 1, interventionist: 2 } },
-      B: { name: "Poland", scores: { leftRight: 1, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
+      B: { name: "Poland", scores: { leftRight: 0, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -310,8 +310,8 @@ const questions = [
     year: 1941,
     summary: "Operation Barbarossa was Germany's invasion of the Soviet Union in June 1941, the largest military operation in history, driven by Nazi ideology seeking Lebensraum in the east and the destruction of what Hitler called Judeo-Bolshevism. The Soviets, initially devastated by the surprise attack, eventually stabilized their lines and mounted a massive counteroffensive. The failure of Barbarossa to achieve a quick victory proved decisive in Germany's ultimate defeat in World War II.",
     sides: {
-      A: { name: "Germany", scores: { leftRight: 2, imperialism: 2, revolutionary: 1, nationalist: 1, interventionist: 2 } },
-      B: { name: "Soviet Union", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: -1, interventionist: 0 } }
+      A: { name: "Germany", scores: { leftRight: 3, imperialism: 2, revolutionary: 1, nationalist: 1, interventionist: 2 } },
+      B: { name: "Soviet Union", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: -1, interventionist: 0 } }
     }
   },
   {
@@ -320,7 +320,7 @@ const questions = [
     summary: "The Pacific War began with Japan's surprise attack on Pearl Harbor in December 1941, following years of tension over Japan's expansion in Asia and US economic sanctions. Japan sought to establish a Greater East Asia Co-Prosperity Sphere and secure resources by neutralizing American naval power, while the US sought to defend its Pacific interests and allies. The US ultimately defeated Japan after a long island-hopping campaign, culminating in atomic bombings of Hiroshima and Nagasaki in 1945.",
     sides: {
       A: { name: "United States", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 0, interventionist: 2 } },
-      B: { name: "Japan", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: 2, interventionist: 2 } }
+      B: { name: "Japan", scores: { leftRight: 2, imperialism: 2, revolutionary: -1, nationalist: 2, interventionist: 2 } }
     }
   },
   {
@@ -346,8 +346,8 @@ const questions = [
     year: 1946,
     summary: "The second phase of the Chinese Civil War resumed after World War II between Chiang Kai-shek's Nationalist government and Mao Zedong's Communist Party. The Nationalists sought to reunify China under their government with US support, while the Communists sought to establish a socialist state with Soviet support. The Communists won in 1949, establishing the People's Republic of China while the Nationalists retreated to Taiwan.",
     sides: {
-      A: { name: "Nationalists", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
-      B: { name: "Communists", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
+      A: { name: "Nationalists", scores: { leftRight: 3, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
+      B: { name: "Communists", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
     }
   },
   {
@@ -355,7 +355,7 @@ const questions = [
     year: 1946,
     summary: "The First Indochina War was fought between France seeking to restore its colonial empire in Indochina and the Viet Minh independence movement led by Ho Chi Minh. The Viet Minh sought full independence for Vietnam, while France sought to maintain its colonial presence in Southeast Asia. France was decisively defeated at Dien Bien Phu in 1954, leading to Vietnamese independence and the partition of Vietnam.",
     sides: {
-      A: { name: "France", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
+      A: { name: "France", scores: { leftRight: 3, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
       B: { name: "Viet Minh", scores: { leftRight: -2, imperialism: -2, revolutionary: 2, nationalist: 1, interventionist: -2 } }
     }
   },
@@ -364,8 +364,8 @@ const questions = [
     year: 1946,
     summary: "The Greek Civil War was fought between the Greek government supported by Britain and later the United States, and the Democratic Army of Greece backed by Yugoslavia and other communist states. The communists sought to establish a socialist government, while the government sought to restore the monarchy and maintain the Western political order. The government won in 1949 following Yugoslavia's split with the Soviet Union, which cut off communist supply lines.",
     sides: {
-      A: { name: "Greek Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 0 } },
-      B: { name: "Communists", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 1 } }
+      A: { name: "Greek Government", scores: { leftRight: 3, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 0 } },
+      B: { name: "Communists", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 1 } }
     }
   },
   {
@@ -373,8 +373,8 @@ const questions = [
     year: 1948,
     summary: "The Malayan Emergency was an insurgency fought between Britain and the Malayan Communist Party, which launched a guerrilla campaign to establish a communist state in British Malaya. Britain sought to maintain its colonial presence and defeat the communist insurgency, while the MCP sought to end colonial rule and establish socialism. Britain defeated the insurgency through military operations and political reforms leading to Malayan independence in 1957.",
     sides: {
-      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
-      B: { name: "Malayan Communists", scores: { leftRight: -2, imperialism: -2, revolutionary: 2, nationalist: 1, interventionist: -2 } }
+      A: { name: "Britain", scores: { leftRight: 3, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
+      B: { name: "Malayan Communists", scores: { leftRight: -3, imperialism: -2, revolutionary: 2, nationalist: 1, interventionist: -2 } }
     }
   },
   {
@@ -382,8 +382,8 @@ const questions = [
     year: 1950,
     summary: "The Korean War began when North Korea invaded South Korea in June 1950, seeking to reunify the peninsula under communist rule. A US-led UN coalition intervened to defend South Korea, while China entered the war when UN forces approached the Chinese border. The war ended in a stalemate in 1953 with an armistice restoring the pre-war division along the 38th parallel.",
     sides: {
-      A: { name: "North Korea", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 1, interventionist: 2 } },
-      B: { name: "South Korea", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: -2 } }
+      A: { name: "North Korea", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: 1, interventionist: 2 } },
+      B: { name: "South Korea", scores: { leftRight: 3, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: -2 } }
     }
   },
   {
@@ -409,8 +409,8 @@ const questions = [
     year: 1955,
     summary: "The Vietnam War was fought between North Vietnam and its communist allies against South Vietnam supported by the United States, following the partition of Vietnam after the French defeat in 1954. North Vietnam sought to reunify the country under communist rule, while the US sought to prevent communist expansion in Southeast Asia. North Vietnam won in 1975 following the US withdrawal, reunifying the country under communist rule.",
     sides: {
-      A: { name: "North Vietnam", scores: { leftRight: -2, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: 1 } },
-      B: { name: "South Vietnam", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: -1 } }
+      A: { name: "North Vietnam", scores: { leftRight: -3, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: 1 } },
+      B: { name: "South Vietnam", scores: { leftRight: 3, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: -1 } }
     }
   },
   {
@@ -436,8 +436,8 @@ const questions = [
     year: 1959,
     summary: "The Laotian Civil War was fought between the Royal Lao Government backed by the United States, and the Pathet Lao communist movement supported by North Vietnam and the Soviet Union. The Pathet Lao sought to establish a communist state aligned with Vietnam, while the Royal Government sought to maintain a neutralist or pro-Western orientation. The Pathet Lao ultimately won in 1975, establishing the Lao People's Democratic Republic.",
     sides: {
-      A: { name: "Royal Lao Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
-      B: { name: "Pathet Lao", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 1 } }
+      A: { name: "Royal Lao Government", scores: { leftRight: 2, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
+      B: { name: "Pathet Lao", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 1 } }
     }
   },
   {
@@ -454,7 +454,7 @@ const questions = [
     year: 1962,
     summary: "The Sino-Indian War was fought over disputed border territories in the Himalayas, arising from conflicting claims over regions like Aksai Chin and Arunachal Pradesh. China launched a surprise offensive and quickly overwhelmed Indian forces, seeking to assert its border claims and punish India for its forward policy. China won decisively but unilaterally withdrew, retaining Aksai Chin while leaving the broader border dispute unresolved.",
     sides: {
-      A: { name: "China", scores: { leftRight: -2, imperialism: 1, revolutionary: 1, nationalist: 1, interventionist: 2 } },
+      A: { name: "China", scores: { leftRight: -3, imperialism: 1, revolutionary: 1, nationalist: 1, interventionist: 2 } },
       B: { name: "India", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 1, interventionist: -2 } }
     }
   },
@@ -491,7 +491,7 @@ const questions = [
     summary: "The Nigerian Civil War was fought between Nigeria and the secessionist Republic of Biafra, declared by the predominantly Igbo southeastern region following ethnic massacres and political marginalization. Biafra sought independence and protection for its people, while Nigeria sought to maintain its territorial integrity. Nigeria won in 1970, reintegrating Biafra, though the war caused over a million deaths from famine.",
     sides: {
       A: { name: "Nigeria", scores: { leftRight: 0, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } },
-      B: { name: "Biafra", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 2, interventionist: -2 } }
+      B: { name: "Biafra", scores: { leftRight: 2, imperialism: -1, revolutionary: 0, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -499,8 +499,8 @@ const questions = [
     year: 1967,
     summary: "The Cambodian Civil War was fought between the US-backed Lon Nol government and the Khmer Rouge communist insurgency, which grew rapidly following the 1970 coup against Prince Sihanouk. The Lon Nol government sought to maintain a pro-Western state, while the Khmer Rouge sought to establish an agrarian communist utopia. The Khmer Rouge won in 1975 and proceeded to implement a genocidal regime that killed up to two million people.",
     sides: {
-      A: { name: "Lon Nol Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
-      B: { name: "Khmer Rouge", scores: { leftRight: -2, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: -1 } }
+      A: { name: "Lon Nol Government", scores: { leftRight: 2, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
+      B: { name: "Khmer Rouge", scores: { leftRight: -3, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: -1 } }
     }
   },
   {
@@ -509,7 +509,7 @@ const questions = [
     summary: "The Troubles was an ethno-nationalist conflict in Northern Ireland between predominantly Catholic Irish republicans seeking unification with Ireland, and predominantly Protestant unionists seeking to remain part of the United Kingdom. Republican paramilitaries like the IRA carried out bombings and assassinations, while loyalist paramilitaries and British security forces responded with their own violence. The conflict ended with the Good Friday Agreement in 1998.",
     sides: {
       A: { name: "British State", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: -1, interventionist: 2 } },
-      B: { name: "Irish Republican Militants", scores: { leftRight: -1, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -2 } }
+      B: { name: "Irish Republican Militants", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -535,8 +535,8 @@ const questions = [
     year: 1974,
     summary: "The 1974 Ethiopian Revolution saw the Derg military committee overthrow Emperor Haile Selassie, ending the ancient Ethiopian monarchy amid famine, economic crisis, and popular unrest. The emperor sought to maintain the imperial system, while the Derg and various leftist factions sought to modernize Ethiopia and address social inequalities. The Derg established a Marxist military dictatorship, executing the emperor and beginning a period known as the Red Terror.",
     sides: {
-      A: { name: "Monarchy", scores: { leftRight: 2, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: -1 } },
-      B: { name: "Rebels", scores: { leftRight: -1, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
+      A: { name: "Monarchy", scores: { leftRight: 3, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: -1 } },
+      B: { name: "Rebels", scores: { leftRight: -3, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
     }
   },
   {
@@ -554,7 +554,7 @@ const questions = [
     summary: "The Ogaden War was fought between Somalia and Ethiopia over the Ogaden region, which Somalia claimed based on its ethnic Somali population. Somalia launched an invasion and initially captured most of the Ogaden, while Ethiopia, backed by Soviet and Cuban support, mounted a massive counteroffensive. Ethiopia recaptured the Ogaden in 1978, and Somalia's defeat contributed to the eventual collapse of the Somali state.",
     sides: {
       A: { name: "Somalia", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 2, interventionist: 2 } },
-      B: { name: "Ethiopia", scores: { leftRight: -1, imperialism: -1, revolutionary: 0, nationalist: 1, interventionist: -2 } }
+      B: { name: "Ethiopia", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 1, interventionist: -2 } }
     }
   },
   {
@@ -563,7 +563,7 @@ const questions = [
     summary: "The Lebanese Civil War was a complex multi-sided conflict involving Lebanese Christian, Sunni, Shia, and Druze factions, the PLO, Syria, Israel, and various foreign powers. Different factions sought dominance over Lebanon's political system or to use Lebanon as a base for their own agendas. The war lasted 15 years and ended with the Taif Agreement in 1989.",
     sides: {
       A: { name: "Lebanese Factions (Right)", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
-      B: { name: "Lebanese Factions (Left/PLO)", scores: { leftRight: -1, imperialism: -1, revolutionary: 1, nationalist: 1, interventionist: 0 } }
+      B: { name: "Lebanese Factions (Left/PLO)", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
     }
   },
   {
@@ -580,8 +580,8 @@ const questions = [
     year: 1979,
     summary: "The Soviet Union invaded Afghanistan in 1979 to support its communist government against the Mujahideen insurgency. The Soviets sought to maintain a communist ally on their southern border, while the Mujahideen, backed by the US, Pakistan, and Saudi Arabia, sought to expel the Soviets and establish an Islamic government. The Soviets withdrew in 1989 after a decade of costly guerrilla warfare, contributing to the collapse of the Soviet Union.",
     sides: {
-      A: { name: "Soviet Union", scores: { leftRight: -2, imperialism: 1, revolutionary: 1, nationalist: -1, interventionist: 2 } },
-      B: { name: "Afghan Mujahideen", scores: { leftRight: 1, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
+      A: { name: "Soviet Union", scores: { leftRight: -3, imperialism: 1, revolutionary: 1, nationalist: -1, interventionist: 2 } },
+      B: { name: "Afghan Mujahideen", scores: { leftRight: 3, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
     }
   },
   {
@@ -625,17 +625,17 @@ const questions = [
     year: 1989,
     summary: "The Tiananmen Square protests were a pro-democracy movement led by students and workers in Beijing, calling for political reform, freedom of the press, and an end to corruption in the Communist Party. The Chinese government declared martial law and sent in the military to suppress the protests, killing hundreds to thousands of demonstrators. The government maintained Communist Party rule and the event remains heavily censored in China.",
     sides: {
-      A: { name: "China", scores: { leftRight: -1, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 1 } },
-      B: { name: "Protesters", scores: { leftRight: 0, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: -1 } }
-    }
+      A: { name: "China", scores: { leftRight: -2, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 1 } },
+      B: { name: "Protesters", scores: { leftRight: 2, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: 0} }
+     }
   },
   {
     war: "Romanian Revolution",
     year: 1989,
     summary: "The Romanian Revolution was an uprising against the communist dictatorship of Nicolae Ceaușescu, beginning with protests in Timișoara that spread nationally and led to the regime's collapse within days. Romanians sought to end decades of brutal communist rule and establish democratic governance, while the regime sought to suppress the uprising. Ceaușescu and his wife were captured and executed on Christmas Day 1989, ending communist rule in Romania.",
     sides: {
-      A: { name: "Romanian Regime", scores: { leftRight: -1, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 0 } },
-      B: { name: "Revolutionaries", scores: { leftRight: 0, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
+      A: { name: "Romanian Regime", scores: { leftRight: -2, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 0 } },
+      B: { name: "Revolutionaries", scores: { leftRight: 2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
     }
   },
   {
@@ -832,27 +832,27 @@ function showResults() {
   const interventionistPct = toPercent(scores.interventionist, max);
 
   const ideologies = [
-    { name: "Bolshevism",               scores: { leftRight: -2, imperialism: -1, revolutionary: 2,  nationalist: -1, interventionist: 1  }},
-    { name: "Trotskyism",               scores: { leftRight: -2, imperialism: -2, revolutionary: 2,  nationalist: -2, interventionist: 2  }},
-    { name: "Maoism",                   scores: { leftRight: -2, imperialism: -2, revolutionary: 2,  nationalist: 1,  interventionist: -1 }},
-    { name: "Marxism",                  scores: { leftRight: -2, imperialism: -2, revolutionary: 2,  nationalist: -1, interventionist: 0  }},
+    { name: "Bolshevism",               scores: { leftRight: -3, imperialism: 1, revolutionary: 3,  nationalist: -1, interventionist: 1  }},
+    { name: "Trotskyism",               scores: { leftRight: -3, imperialism: 1, revolutionary: 2,  nationalist: -2, interventionist: 2  }},
+    { name: "Maoism",                   scores: { leftRight: -3, imperialism: 1, revolutionary: 3,  nationalist: 1,  interventionist: -1 }},
+    { name: "Marxism",                  scores: { leftRight: -3, imperialism: 1, revolutionary: 3,  nationalist: -1, interventionist: 0  }},
     { name: "Strasserism",              scores: { leftRight: 0,  imperialism: -1, revolutionary: 2,  nationalist: 2,  interventionist: 1  }},
     { name: "National Bolshevism",      scores: { leftRight: 0,  imperialism: 0,  revolutionary: 1,  nationalist: 2,  interventionist: 1  }},
     { name: "Classical Fascism",        scores: { leftRight: 1,  imperialism: 2,  revolutionary: 2,  nationalist: 2,  interventionist: 2  }},
     { name: "National Socialism",       scores: { leftRight: 1,  imperialism: 1,  revolutionary: 2,  nationalist: 2,  interventionist: 2  }},
     { name: "Falangism",                scores: { leftRight: 1,  imperialism: 0,  revolutionary: -1, nationalist: 2,  interventionist: 1  }},
-    { name: "Clerical Fascism",         scores: { leftRight: 1,  imperialism: 0,  revolutionary: -2, nationalist: 2,  interventionist: 0  }},
-    { name: "Social Democracy",         scores: { leftRight: -1, imperialism: -1, revolutionary: 0,  nationalist: 0,  interventionist: 0  }},
+    { name: "Clerical Fascism",         scores: { leftRight: 1,  imperialism: 0,  revolutionary: -2, nationalist: 2,  interventionist: 1  }},
+    { name: "Social Democracy",         scores: { leftRight: -1, imperialism: -1, revolutionary: 0,  nationalist: 0,  interventionist: -1 }},
     { name: "Liberal Internationalism", scores: { leftRight: 0,  imperialism: 0,  revolutionary: 0,  nationalist: -1, interventionist: 2  }},
     { name: "Centrism",                 scores: { leftRight: 0,  imperialism: 0,  revolutionary: 0,  nationalist: 0,  interventionist: 0  }},
     { name: "Liberal Conservatism",     scores: { leftRight: 1,  imperialism: 1,  revolutionary: -1, nationalist: 0,  interventionist: 1  }},
     { name: "Christian Democracy",      scores: { leftRight: 1,  imperialism: -1, revolutionary: -1, nationalist: 1,  interventionist: 0  }},
     { name: "Classical Conservatism",   scores: { leftRight: 1,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
-    { name: "Reactionary",              scores: { leftRight: 2,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
-    { name: "Paleoconservatism",        scores: { leftRight: 1,  imperialism: -2, revolutionary: -1, nationalist: 2,  interventionist: -2 }},
+    { name: "Reactionary",              scores: { leftRight: 3,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
+    { name: "Paleoconservatism",        scores: { leftRight: 2,  imperialism: -2, revolutionary: -1, nationalist: 2,  interventionist: -2 }},
     { name: "Libertarianism",           scores: { leftRight: 1,  imperialism: -2, revolutionary: 0,  nationalist: 0,  interventionist: -2 }},
-    { name: "Neoconservatism",          scores: { leftRight: 1,  imperialism: 2,  revolutionary: 0,  nationalist: 0,  interventionist: 2  }},
-    { name: "Neoliberalism",            scores: { leftRight: 1,  imperialism: 1,  revolutionary: 0,  nationalist: -1, interventionist: 1  }},
+    { name: "Neoconservatism",          scores: { leftRight: 3,  imperialism: 3,  revolutionary: 0,  nationalist: 0,  interventionist: 3  }},
+    { name: "Neoliberalism",            scores: { leftRight: 3,  imperialism: 2,  revolutionary: 0,  nationalist: 1, interventionist: 1  }},
   ];
 
   const axisKeys = ["leftRight", "imperialism", "revolutionary", "nationalist", "interventionist"];
