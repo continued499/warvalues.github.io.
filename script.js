@@ -1018,8 +1018,7 @@ function showResults() {
       </div>
     `;
   }
-
-  function makeIdeologyBar(name, pct, rank) {
+function makeIdeologyBar(name, pct, rank) {
     const colors = ["#c0392b", "#e67e22", "#95a5a6"];
     const sizes = ["18px", "15px", "13px"];
     return `
@@ -1037,39 +1036,18 @@ function showResults() {
 
   document.getElementById("question").innerText = "Results";
   document.getElementById("progress").innerText = "Finished";
-
   document.getElementById("answers").innerHTML = `
     <div class="wv-results">
-      <div class="wv-axis">${makeBar(leftRightPct, "#c0392b", "#3498db", "Right", "Left")}</div>
-      <div class="wv-axis">${makeBar(imperialismPct, "#8e44ad", "#27ae60", "Imperialism", "Anti-Imperialism")}</div>
-      <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary")}</div>
-      <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist")}</div>
-      <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist")}</div>
+      <div class="wv-axis">${makeBar(leftRightPct, "#c0392b", "#3498db", "Right", "Left", "fa-solid fa-crown", "fa-solid fa-fist-raised")}</div>
+      <div class="wv-axis">${makeBar(imperialismPct, "#8e44ad", "#27ae60", "Imperialism", "Anti-Imperialism", "fa-solid fa-flag", "fa-solid fa-dove")}</div>
+      <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary", "fa-solid fa-fire", "fa-solid fa-shield")}</div>
+      <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist", "fa-solid fa-map", "fa-solid fa-earth-americas")}</div>
+      <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist", "fa-solid fa-jet-fighter", "fa-solid fa-house")}</div>
       <div style="margin-top:1.5rem; padding:1rem; border:0.5px solid #ccc; border-radius:8px; background:#f9f9f9;">
         <div style="font-size:13px; color:#666; margin-bottom:12px; font-weight:600;">Closest Ideological Matches</div>
         ${makeIdeologyBar(top3[0].name, top3[0].pct, 0)}
         ${makeIdeologyBar(top3[1].name, top3[1].pct, 1)}
         ${makeIdeologyBar(top3[2].name, top3[2].pct, 2)}
-      </div>
-    </div>
-  `;
-}
-
-  document.getElementById("question").innerText = "Results";
-  document.getElementById("progress").innerText = "Finished";
-
-  document.getElementById("answers").innerHTML = `
-    <div class="wv-results">
-      <div class="wv-axis">${makeBar(leftRightPct, "#c0392b", "#3498db", "Right", "Left")}</div>
-      <div class="wv-axis">${makeBar(imperialismPct, "#8e44ad", "#27ae60", "Imperialism", "Anti-Imperialism")}</div>
-      <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary")}</div>
-      <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist")}</div>
-      <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist")}</div>
-      <div style="margin-top:1.5rem; padding:1rem; border:0.5px solid #ccc; border-radius:8px; background:#f9f9f9;">
-        <div style="font-size:13px; color:#666; margin-bottom:8px;">Closest Ideological Matches</div>
-        <div style="font-size:20px; font-weight:700; color:#111;">🥇 ${top3[0].name}</div>
-        <div style="font-size:16px; color:#333; margin-top:6px;">🥈 ${top3[1].name}</div>
-        <div style="font-size:14px; color:#555; margin-top:6px;">🥉 ${top3[2].name}</div>
       </div>
     </div>
   `;
