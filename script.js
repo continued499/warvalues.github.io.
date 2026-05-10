@@ -936,10 +936,10 @@ function showResults() {
   const interventionistPct = toPercent(scores.interventionist, maxPossible.interventionist);
 
   const ideologies = [
-    { name: "Bolshevism",               scores: { leftRight: -3, imperialism: 1, revolutionary: 3,  nationalist: -1, interventionist: 1  }},
-    { name: "Trotskyism",               scores: { leftRight: -3, imperialism: 1, revolutionary: 2,  nationalist: -2, interventionist: 2  }},
-    { name: "Maoism",                   scores: { leftRight: -3, imperialism: 1, revolutionary: 3,  nationalist: 1,  interventionist: -1 }},
-    { name: "Marxism",                  scores: { leftRight: -3, imperialism: 1, revolutionary: 3,  nationalist: -1, interventionist: 0  }},
+    { name: "Bolshevism",               scores: { leftRight: -3, imperialism: 1,  revolutionary: 3,  nationalist: -1, interventionist: 1  }},
+    { name: "Trotskyism",               scores: { leftRight: -3, imperialism: 1,  revolutionary: 2,  nationalist: -2, interventionist: 2  }},
+    { name: "Maoism",                   scores: { leftRight: -3, imperialism: 1,  revolutionary: 3,  nationalist: 1,  interventionist: -1 }},
+    { name: "Marxism",                  scores: { leftRight: -3, imperialism: 1,  revolutionary: 3,  nationalist: -1, interventionist: 0  }},
     { name: "Strasserism",              scores: { leftRight: 0,  imperialism: -1, revolutionary: 2,  nationalist: 2,  interventionist: 1  }},
     { name: "National Bolshevism",      scores: { leftRight: 0,  imperialism: 0,  revolutionary: 1,  nationalist: 2,  interventionist: 1  }},
     { name: "Classical Fascism",        scores: { leftRight: 1,  imperialism: 2,  revolutionary: 2,  nationalist: 2,  interventionist: 2  }},
@@ -951,15 +951,24 @@ function showResults() {
     { name: "Centrism",                 scores: { leftRight: 0,  imperialism: 0,  revolutionary: 0,  nationalist: 0,  interventionist: 0  }},
     { name: "Liberal Conservatism",     scores: { leftRight: 1,  imperialism: 1,  revolutionary: -1, nationalist: 0,  interventionist: 1  }},
     { name: "Christian Democracy",      scores: { leftRight: 1,  imperialism: -1, revolutionary: -1, nationalist: 1,  interventionist: 0  }},
-    { name: "Classical Conservatism",   scores: { leftRight: 1,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
-    { name: "Reactionary",              scores: { leftRight: 3,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
+    { name: "Classical Conservatism",   scores: { leftRight: 2,  imperialism: 0,  revolutionary: -2, nationalist: 1,  interventionist: -1 }},
+    { name: "Reactionary",              scores: { leftRight: 3,  imperialism: 0,  revolutionary: -3, nationalist: 2,  interventionist: -1 }},
     { name: "Paleoconservatism",        scores: { leftRight: 2,  imperialism: -2, revolutionary: -1, nationalist: 2,  interventionist: -2 }},
     { name: "Libertarianism",           scores: { leftRight: 1,  imperialism: -2, revolutionary: 0,  nationalist: 0,  interventionist: -2 }},
     { name: "Neoconservatism",          scores: { leftRight: 3,  imperialism: 3,  revolutionary: 0,  nationalist: 0,  interventionist: 3  }},
-    { name: "Neoliberalism",            scores: { leftRight: 3,  imperialism: 2,  revolutionary: 0,  nationalist: 1, interventionist: 1  }},
+    { name: "Neoliberalism",            scores: { leftRight: 3,  imperialism: 2,  revolutionary: 0,  nationalist: 1,  interventionist: 1  }},
   ];
 
   const axisKeys = ["leftRight", "imperialism", "revolutionary", "nationalist", "interventionist"];
+
+  // Weights — leftRight and revolutionary are most ideologically defining
+  const weights = {
+    leftRight: 2.5,
+    imperialism: 1,
+    revolutionary: 2.5,
+    nationalist: 1,
+    interventionist: 1
+  };
 
   const userScoresNorm = {
     leftRight:       (leftRightPct / 50) - 1,
@@ -973,12 +982,18 @@ function showResults() {
     const distance = axisKeys.reduce((sum, key) => {
       const ideologyNorm = ideology.scores[key] / 3;
       const diff = userScoresNorm[key] - ideologyNorm;
-      return sum + diff * diff;
+      return sum + weights[key] * diff * diff;
     }, 0);
     return { name: ideology.name, distance };
   }).sort((a, b) => a.distance - b.distance);
 
-  const top3 = ranked.slice(0, 3);
+  // Convert distances to match percentages — closest = 100%
+  const maxDist = ranked[ranked.length - 1].distance;
+  const minDist = ranked[0].distance;
+  const top3 = ranked.slice(0, 3).map(r => ({
+    name: r.name,
+    pct: Math.round(100 - ((r.distance - minDist) / (maxDist - minDist)) * 100)
+  }));
 
   function axisLabel(pct, leftLabel, rightLabel) {
     if (pct > 60) return leftLabel;
@@ -1003,6 +1018,42 @@ function showResults() {
       </div>
     `;
   }
+
+  function makeIdeologyBar(name, pct, rank) {
+    const colors = ["#c0392b", "#e67e22", "#95a5a6"];
+    const sizes = ["18px", "15px", "13px"];
+    return `
+      <div style="margin-bottom: 12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <span style="font-weight:700; font-size:${sizes[rank]}; color:#111;">${name}</span>
+          <span style="font-weight:700; font-size:${sizes[rank]}; color:${colors[rank]};">${pct}%</span>
+        </div>
+        <div style="background:#ddd; height:10px; border-radius:6px; overflow:hidden;">
+          <div style="width:${pct}%; height:100%; background:${colors[rank]}; border-radius:6px;"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById("question").innerText = "Results";
+  document.getElementById("progress").innerText = "Finished";
+
+  document.getElementById("answers").innerHTML = `
+    <div class="wv-results">
+      <div class="wv-axis">${makeBar(leftRightPct, "#c0392b", "#3498db", "Right", "Left")}</div>
+      <div class="wv-axis">${makeBar(imperialismPct, "#8e44ad", "#27ae60", "Imperialism", "Anti-Imperialism")}</div>
+      <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary")}</div>
+      <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist")}</div>
+      <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist")}</div>
+      <div style="margin-top:1.5rem; padding:1rem; border:0.5px solid #ccc; border-radius:8px; background:#f9f9f9;">
+        <div style="font-size:13px; color:#666; margin-bottom:12px; font-weight:600;">Closest Ideological Matches</div>
+        ${makeIdeologyBar(top3[0].name, top3[0].pct, 0)}
+        ${makeIdeologyBar(top3[1].name, top3[1].pct, 1)}
+        ${makeIdeologyBar(top3[2].name, top3[2].pct, 2)}
+      </div>
+    </div>
+  `;
+}
 
   document.getElementById("question").innerText = "Results";
   document.getElementById("progress").innerText = "Finished";
