@@ -344,7 +344,7 @@ const questions = [
   {
     war: "Chinese Civil War",
     year: 1946,
-    summary: "The second phase of the Chinese Civil War resumed after World War II between Chiang Kai-shek's Nationalist government and Mao Zedong's Communist Party, who had fought a fragile truce against Japan. The Nationalists sought to reunify China under their government with US support, while the Communists sought to establish a socialist state with Soviet support. The Communists won in 1949, establishing the People's Republic of China while the Nationalists retreated to Taiwan.",
+    summary: "The second phase of the Chinese Civil War resumed after World War II between Chiang Kai-shek's Nationalist government and Mao Zedong's Communist Party. The Nationalists sought to reunify China under their government with US support, while the Communists sought to establish a socialist state with Soviet support. The Communists won in 1949, establishing the People's Republic of China while the Nationalists retreated to Taiwan.",
     sides: {
       A: { name: "Nationalists", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
       B: { name: "Communists", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
@@ -353,7 +353,7 @@ const questions = [
   {
     war: "First Indochina War",
     year: 1946,
-    summary: "The First Indochina War was fought between France seeking to restore its colonial empire in Indochina and the Viet Minh independence movement led by Ho Chi Minh, who had declared Vietnamese independence following Japan's defeat. The Viet Minh sought full independence for Vietnam, while France sought to maintain its colonial presence and influence in Southeast Asia. France was decisively defeated at Dien Bien Phu in 1954, leading to Vietnamese independence and the partition of Vietnam.",
+    summary: "The First Indochina War was fought between France seeking to restore its colonial empire in Indochina and the Viet Minh independence movement led by Ho Chi Minh. The Viet Minh sought full independence for Vietnam, while France sought to maintain its colonial presence in Southeast Asia. France was decisively defeated at Dien Bien Phu in 1954, leading to Vietnamese independence and the partition of Vietnam.",
     sides: {
       A: { name: "France", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
       B: { name: "Viet Minh", scores: { leftRight: -2, imperialism: -2, revolutionary: 2, nationalist: 1, interventionist: -2 } }
@@ -371,7 +371,7 @@ const questions = [
   {
     war: "Malayan Emergency",
     year: 1948,
-    summary: "The Malayan Emergency was an insurgency fought between Britain and the Malayan Communist Party, which launched a guerrilla campaign to establish a communist state in British Malaya. Britain sought to maintain its colonial presence and defeat the communist insurgency, while the MCP sought to end colonial rule and establish socialism. Britain defeated the insurgency through a combination of military operations and political reforms leading to Malayan independence in 1957.",
+    summary: "The Malayan Emergency was an insurgency fought between Britain and the Malayan Communist Party, which launched a guerrilla campaign to establish a communist state in British Malaya. Britain sought to maintain its colonial presence and defeat the communist insurgency, while the MCP sought to end colonial rule and establish socialism. Britain defeated the insurgency through military operations and political reforms leading to Malayan independence in 1957.",
     sides: {
       A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
       B: { name: "Malayan Communists", scores: { leftRight: -2, imperialism: -2, revolutionary: 2, nationalist: 1, interventionist: -2 } }
@@ -380,7 +380,7 @@ const questions = [
   {
     war: "Korean War",
     year: 1950,
-    summary: "The Korean War began when North Korea invaded South Korea in June 1950, seeking to reunify the peninsula under communist rule following the division after World War II. A US-led UN coalition intervened to defend South Korea, while China entered the war when UN forces approached the Chinese border. The war ended in a stalemate in 1953 with an armistice restoring the pre-war division along the 38th parallel.",
+    summary: "The Korean War began when North Korea invaded South Korea in June 1950, seeking to reunify the peninsula under communist rule. A US-led UN coalition intervened to defend South Korea, while China entered the war when UN forces approached the Chinese border. The war ended in a stalemate in 1953 with an armistice restoring the pre-war division along the 38th parallel.",
     sides: {
       A: { name: "North Korea", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 1, interventionist: 2 } },
       B: { name: "South Korea", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: -2 } }
@@ -398,7 +398,7 @@ const questions = [
   {
     war: "Algerian War",
     year: 1954,
-    summary: "The Algerian War was fought between France and the National Liberation Front (FLN), which launched an armed insurgency to end French colonial rule over Algeria, where over a million European settlers lived. The FLN sought full independence, while France, which considered Algeria an integral part of France rather than a colony, sought to maintain its control through a brutal counterinsurgency. Algeria gained independence in 1962 following the Evian Accords.",
+    summary: "The Algerian War was fought between France and the National Liberation Front, which launched an armed insurgency to end French colonial rule over Algeria. France, which considered Algeria an integral part of France rather than a colony, sought to maintain its control through a brutal counterinsurgency. Algeria gained independence in 1962 following the Evian Accords.",
     sides: {
       A: { name: "France", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: -1, interventionist: 2 } },
       B: { name: "FLN", scores: { leftRight: -1, imperialism: -2, revolutionary: 2, nationalist: 2, interventionist: -2 } }
@@ -407,7 +407,7 @@ const questions = [
   {
     war: "Vietnam War",
     year: 1955,
-    summary: "The Vietnam War was fought between North Vietnam and its communist allies against South Vietnam supported by the United States, following the partition of Vietnam after the French defeat in 1954. North Vietnam sought to reunify the country under communist rule, while the US sought to prevent communist expansion in Southeast Asia through the domino theory. North Vietnam won in 1975 following the US withdrawal, reunifying the country under communist rule.",
+    summary: "The Vietnam War was fought between North Vietnam and its communist allies against South Vietnam supported by the United States, following the partition of Vietnam after the French defeat in 1954. North Vietnam sought to reunify the country under communist rule, while the US sought to prevent communist expansion in Southeast Asia. North Vietnam won in 1975 following the US withdrawal, reunifying the country under communist rule.",
     sides: {
       A: { name: "North Vietnam", scores: { leftRight: -2, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: 1 } },
       B: { name: "South Vietnam", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: -1 } }
@@ -416,7 +416,7 @@ const questions = [
   {
     war: "Hungarian Revolution",
     year: 1956,
-    summary: "The Hungarian Revolution was a nationwide revolt against the Soviet-backed Hungarian government in 1956, inspired by de-Stalinization and Polish reforms, which briefly established a multiparty government and declared neutrality. Hungary sought to leave the Warsaw Pact and establish an independent democratic socialist state, while the Soviet Union sought to maintain its sphere of influence in Eastern Europe. The Soviet Union crushed the revolution with military force, killing thousands and causing mass emigration.",
+    summary: "The Hungarian Revolution was a nationwide revolt against the Soviet-backed Hungarian government in 1956, which briefly established a multiparty government and declared neutrality. Hungary sought to leave the Warsaw Pact and establish an independent democratic state, while the Soviet Union sought to maintain its sphere of influence in Eastern Europe. The Soviet Union crushed the revolution with military force, killing thousands and causing mass emigration.",
     sides: {
       A: { name: "Soviet Union", scores: { leftRight: -2, imperialism: 1, revolutionary: -1, nationalist: -2, interventionist: 2 } },
       B: { name: "Hungarian Revolutionaries", scores: { leftRight: 0, imperialism: -1, revolutionary: 2, nationalist: 2, interventionist: -2 } }
@@ -425,7 +425,7 @@ const questions = [
   {
     war: "Suez Crisis",
     year: 1956,
-    summary: "The Suez Crisis began when Egypt's President Nasser nationalized the Suez Canal, prompting a secretly coordinated military operation by Britain, France, and Israel. Britain and France sought to regain control of the canal and topple Nasser, while Israel sought to neutralize Egyptian military buildup in Sinai. The operation was forced to halt by US and Soviet pressure, resulting in a major humiliation for Britain and France and marking the end of European imperial power in the Middle East.",
+    summary: "The Suez Crisis began when Egypt's President Nasser nationalized the Suez Canal, prompting a secretly coordinated military operation by Britain, France, and Israel. Britain and France sought to regain control of the canal and topple Nasser, while Egypt sought to assert its sovereignty over its own territory. The operation was forced to halt by US and Soviet pressure, marking the end of European imperial power in the Middle East.",
     sides: {
       A: { name: "Britain / France / Israel", scores: { leftRight: 1, imperialism: 2, revolutionary: -1, nationalist: 0, interventionist: 2 } },
       B: { name: "Egypt", scores: { leftRight: 0, imperialism: -2, revolutionary: 1, nationalist: 2, interventionist: -2 } }
@@ -434,7 +434,7 @@ const questions = [
   {
     war: "Laotian Civil War",
     year: 1959,
-    summary: "The Laotian Civil War was fought between the Royal Lao Government, backed by the United States, and the Pathet Lao communist movement, supported by North Vietnam and the Soviet Union. The Pathet Lao sought to establish a communist state aligned with Vietnam, while the Royal Government sought to maintain a neutralist or pro-Western orientation. The Pathet Lao ultimately won in 1975, establishing the Lao People's Democratic Republic.",
+    summary: "The Laotian Civil War was fought between the Royal Lao Government backed by the United States, and the Pathet Lao communist movement supported by North Vietnam and the Soviet Union. The Pathet Lao sought to establish a communist state aligned with Vietnam, while the Royal Government sought to maintain a neutralist or pro-Western orientation. The Pathet Lao ultimately won in 1975, establishing the Lao People's Democratic Republic.",
     sides: {
       A: { name: "Royal Lao Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
       B: { name: "Pathet Lao", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 1 } }
@@ -443,7 +443,7 @@ const questions = [
   {
     war: "Congo Crisis",
     year: 1960,
-    summary: "The Congo Crisis erupted immediately after Congolese independence from Belgium in 1960, when the mineral-rich Katanga province declared secession under Moise Tshombe, backed by Belgian mining interests. The Congolese central government sought to maintain national unity, while Katanga sought independence with foreign support. The UN intervened and Katanga's secession was ended in 1963, though the crisis destabilized Congo for decades.",
+    summary: "The Congo Crisis erupted immediately after Congolese independence from Belgium in 1960, when the mineral-rich Katanga province declared secession backed by Belgian mining interests. The Congolese central government sought to maintain national unity, while Katanga sought independence with foreign support. The UN intervened and Katanga's secession was ended in 1963, though the crisis destabilized Congo for decades.",
     sides: {
       A: { name: "Congo", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: 0 } },
       B: { name: "Katanga", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: -1 } }
@@ -452,7 +452,7 @@ const questions = [
   {
     war: "Sino-Indian War",
     year: 1962,
-    summary: "The Sino-Indian War was fought over disputed border territories in the Himalayas, arising from conflicting claims over regions like Aksai Chin and Arunachal Pradesh following both nations' independence. China launched a surprise offensive and quickly overwhelmed Indian forces, seeking to assert its border claims and punish India for its forward policy. China won decisively but unilaterally withdrew, retaining Aksai Chin while leaving the broader border dispute unresolved.",
+    summary: "The Sino-Indian War was fought over disputed border territories in the Himalayas, arising from conflicting claims over regions like Aksai Chin and Arunachal Pradesh. China launched a surprise offensive and quickly overwhelmed Indian forces, seeking to assert its border claims and punish India for its forward policy. China won decisively but unilaterally withdrew, retaining Aksai Chin while leaving the broader border dispute unresolved.",
     sides: {
       A: { name: "China", scores: { leftRight: -2, imperialism: 1, revolutionary: 1, nationalist: 1, interventionist: 2 } },
       B: { name: "India", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 1, interventionist: -2 } }
@@ -461,7 +461,7 @@ const questions = [
   {
     war: "Dominican Civil War",
     year: 1965,
-    summary: "The Dominican Civil War erupted when military factions loyal to the deposed President Juan Bosch attempted to restore constitutional rule against a military junta. The United States intervened militarily, citing the threat of a communist takeover, to stabilize the situation in favor of conservative forces. The intervention ended the civil war and led to elections won by Joaquín Balaguer, a conservative backed by the US.",
+    summary: "The Dominican Civil War erupted when military factions loyal to the deposed President Juan Bosch attempted to restore constitutional rule against a military junta. The United States intervened militarily, citing the threat of a communist takeover, to stabilize the situation in favor of conservative forces. The intervention led to elections won by Joaquín Balaguer, a conservative backed by the US.",
     sides: {
       A: { name: "Dominican Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
       B: { name: "Rebels", scores: { leftRight: -1, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
@@ -470,7 +470,7 @@ const questions = [
   {
     war: "Indo-Pakistani War",
     year: 1965,
-    summary: "The Indo-Pakistani War of 1965 was fought over the disputed territory of Kashmir, which both India and Pakistan claimed following the partition of British India in 1947. Pakistan launched Operation Gibraltar to infiltrate Kashmir and spark an uprising, while India responded with a full-scale invasion of Pakistani territory. The war ended inconclusively with a UN-brokered ceasefire, with both sides returning to their pre-war positions.",
+    summary: "The Indo-Pakistani War of 1965 was fought over the disputed territory of Kashmir, which both India and Pakistan claimed following the partition of British India in 1947. Pakistan launched Operation Gibraltar to infiltrate Kashmir and spark an uprising, while India responded with a full-scale invasion of Pakistani territory. The war ended inconclusively with a UN-brokered ceasefire, with both sides returning to pre-war positions.",
     sides: {
       A: { name: "India", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: 1 } },
       B: { name: "Pakistan", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 1, interventionist: 1 } }
@@ -479,7 +479,7 @@ const questions = [
   {
     war: "Six-Day War",
     year: 1967,
-    summary: "The Six-Day War was fought between Israel and the Arab states of Egypt, Jordan, and Syria, following Egyptian blockades and military buildups that Israel considered acts of war. Israel launched a preemptive strike and rapidly defeated all three Arab armies, while the Arab states sought to reverse Israeli gains from the 1948 war and eliminate the Israeli state. Israel captured the Sinai, Gaza, West Bank, and Golan Heights, dramatically reshaping the Middle East.",
+    summary: "The Six-Day War was fought between Israel and the Arab states of Egypt, Jordan, and Syria, following Egyptian blockades and military buildups that Israel considered acts of war. Israel launched a preemptive strike and rapidly defeated all three Arab armies, capturing the Sinai, Gaza, West Bank, and Golan Heights. The war dramatically reshaped the Middle East and the Israeli-Palestinian conflict.",
     sides: {
       A: { name: "Israel", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 2, interventionist: 2 } },
       B: { name: "Arabs", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -1 } }
@@ -488,7 +488,7 @@ const questions = [
   {
     war: "Nigerian Civil War",
     year: 1967,
-    summary: "The Nigerian Civil War, also known as the Biafran War, was fought between Nigeria and the secessionist Republic of Biafra, which was declared by the predominantly Igbo southeastern region following ethnic massacres and political marginalization. Biafra sought independence and protection for its people, while Nigeria sought to maintain its territorial integrity. Nigeria won in 1970, reintegrating Biafra, though the war caused a humanitarian catastrophe with over a million deaths from famine.",
+    summary: "The Nigerian Civil War was fought between Nigeria and the secessionist Republic of Biafra, declared by the predominantly Igbo southeastern region following ethnic massacres and political marginalization. Biafra sought independence and protection for its people, while Nigeria sought to maintain its territorial integrity. Nigeria won in 1970, reintegrating Biafra, though the war caused over a million deaths from famine.",
     sides: {
       A: { name: "Nigeria", scores: { leftRight: 0, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } },
       B: { name: "Biafra", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 2, interventionist: -2 } }
@@ -497,7 +497,7 @@ const questions = [
   {
     war: "Cambodian Civil War",
     year: 1967,
-    summary: "The Cambodian Civil War was fought between the US-backed Lon Nol government and the Khmer Rouge communist insurgency, which grew rapidly following the 1970 coup against Prince Sihanouk and the expansion of the Vietnam War into Cambodia. The Lon Nol government sought to maintain a pro-Western state, while the Khmer Rouge sought to establish an agrarian communist utopia. The Khmer Rouge won in 1975 and proceeded to implement a genocidal regime that killed up to two million people.",
+    summary: "The Cambodian Civil War was fought between the US-backed Lon Nol government and the Khmer Rouge communist insurgency, which grew rapidly following the 1970 coup against Prince Sihanouk. The Lon Nol government sought to maintain a pro-Western state, while the Khmer Rouge sought to establish an agrarian communist utopia. The Khmer Rouge won in 1975 and proceeded to implement a genocidal regime that killed up to two million people.",
     sides: {
       A: { name: "Lon Nol Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
       B: { name: "Khmer Rouge", scores: { leftRight: -2, imperialism: -1, revolutionary: 2, nationalist: 1, interventionist: -1 } }
@@ -506,7 +506,7 @@ const questions = [
   {
     war: "The Troubles",
     year: 1968,
-    summary: "The Troubles was a ethno-nationalist conflict in Northern Ireland between predominantly Catholic Irish republicans, who sought unification with the Republic of Ireland, and predominantly Protestant unionists, who sought to remain part of the United Kingdom, with the British state caught in the middle. Republican paramilitaries like the IRA carried out bombings and assassinations, while loyalist paramilitaries and British security forces responded with their own violence. The conflict ended with the Good Friday Agreement in 1998, establishing power-sharing arrangements.",
+    summary: "The Troubles was an ethno-nationalist conflict in Northern Ireland between predominantly Catholic Irish republicans seeking unification with Ireland, and predominantly Protestant unionists seeking to remain part of the United Kingdom. Republican paramilitaries like the IRA carried out bombings and assassinations, while loyalist paramilitaries and British security forces responded with their own violence. The conflict ended with the Good Friday Agreement in 1998.",
     sides: {
       A: { name: "British State", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: -1, interventionist: 2 } },
       B: { name: "Irish Republican Militants", scores: { leftRight: -1, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -2 } }
@@ -515,7 +515,7 @@ const questions = [
   {
     war: "Black September",
     year: 1970,
-    summary: "Black September refers to the conflict between the Jordanian government and Palestinian militant organizations, particularly the PLO, whose armed presence and state-within-a-state had become a direct challenge to Jordanian sovereignty. King Hussein sought to restore Jordanian authority and expel the Palestinian militants, while the PLO sought to maintain its armed presence in Jordan as a base for operations against Israel. Jordan expelled the PLO, which relocated to Lebanon.",
+    summary: "Black September refers to the conflict between the Jordanian government and Palestinian militant organizations, whose armed presence had become a direct challenge to Jordanian sovereignty. King Hussein sought to restore Jordanian authority and expel the Palestinian militants, while the PLO sought to maintain its armed presence in Jordan as a base for operations against Israel. Jordan expelled the PLO, which relocated to Lebanon.",
     sides: {
       A: { name: "Jordan", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 1 } },
       B: { name: "Palestinian Militants", scores: { leftRight: -1, imperialism: -1, revolutionary: 2, nationalist: 2, interventionist: 0 } }
@@ -524,7 +524,7 @@ const questions = [
   {
     war: "Yom Kippur War",
     year: 1973,
-    summary: "The Yom Kippur War was launched by Egypt and Syria with a surprise attack on Israel on the Jewish holy day of Yom Kippur, seeking to recapture territories lost in the 1967 Six-Day War. Egypt sought to recover the Sinai Peninsula and Syria sought to recover the Golan Heights, while Israel fought to repel the invasion and maintain its territorial gains. Israel ultimately repelled both attacks but the war demonstrated Arab military capability and led to the 1978 Camp David Accords.",
+    summary: "The Yom Kippur War was launched by Egypt and Syria with a surprise attack on Israel on the Jewish holy day of Yom Kippur, seeking to recapture territories lost in the 1967 Six-Day War. Israel fought to repel the invasion while Egypt sought to recover the Sinai and Syria sought to recover the Golan Heights. Israel ultimately repelled both attacks, and the war led to the 1978 Camp David Accords between Egypt and Israel.",
     sides: {
       A: { name: "Israel", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 2, interventionist: -1 } },
       B: { name: "Arabs", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: 1 } }
@@ -533,7 +533,7 @@ const questions = [
   {
     war: "Ethiopian Civil War",
     year: 1974,
-    summary: "The 1974 Ethiopian Revolution saw the Derg military committee overthrow Emperor Haile Selassie, ending the ancient Ethiopian monarchy amid famine, economic crisis, and popular unrest. The emperor sought to maintain the imperial system and his personal rule, while the Derg and various leftist factions sought to modernize Ethiopia and address social inequalities. The Derg established a Marxist military dictatorship, executing the emperor and beginning a period known as the Red Terror.",
+    summary: "The 1974 Ethiopian Revolution saw the Derg military committee overthrow Emperor Haile Selassie, ending the ancient Ethiopian monarchy amid famine, economic crisis, and popular unrest. The emperor sought to maintain the imperial system, while the Derg and various leftist factions sought to modernize Ethiopia and address social inequalities. The Derg established a Marxist military dictatorship, executing the emperor and beginning a period known as the Red Terror.",
     sides: {
       A: { name: "Monarchy", scores: { leftRight: 2, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: -1 } },
       B: { name: "Rebels", scores: { leftRight: -1, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
@@ -560,7 +560,7 @@ const questions = [
   {
     war: "Lebanese Civil War",
     year: 1975,
-    summary: "The Lebanese Civil War was a complex multi-sided conflict involving Lebanese Christian, Sunni, Shia, and Druze factions, the PLO, Syria, Israel, and various foreign powers, triggered by tensions over Palestinian armed presence in Lebanon and sectarian power-sharing arrangements. Different factions sought dominance over Lebanon's political system or to use Lebanon as a base for their own agendas. The war lasted 15 years and ended with the Taif Agreement in 1989.",
+    summary: "The Lebanese Civil War was a complex multi-sided conflict involving Lebanese Christian, Sunni, Shia, and Druze factions, the PLO, Syria, Israel, and various foreign powers. Different factions sought dominance over Lebanon's political system or to use Lebanon as a base for their own agendas. The war lasted 15 years and ended with the Taif Agreement in 1989.",
     sides: {
       A: { name: "Lebanese Factions (Right)", scores: { leftRight: 1, imperialism: 0, revolutionary: -1, nationalist: 2, interventionist: 0 } },
       B: { name: "Lebanese Factions (Left/PLO)", scores: { leftRight: -1, imperialism: -1, revolutionary: 1, nationalist: 1, interventionist: 0 } }
@@ -569,7 +569,7 @@ const questions = [
   {
     war: "Cambodian-Vietnamese War",
     year: 1978,
-    summary: "Vietnam invaded Cambodia in 1978 to overthrow the Khmer Rouge regime, which had been conducting cross-border raids and massacring Vietnamese civilians. Vietnam sought to install a friendly government in Cambodia and eliminate a hostile regime on its border, while the Khmer Rouge sought to maintain its radical communist state and resist Vietnamese domination. Vietnam rapidly overthrew the Khmer Rouge, installing a pro-Vietnamese government, though Khmer Rouge resistance continued for years.",
+    summary: "Vietnam invaded Cambodia in 1978 to overthrow the Khmer Rouge regime, which had been conducting cross-border raids and massacring Vietnamese civilians. Vietnam sought to install a friendly government in Cambodia and eliminate a hostile regime on its border, while the Khmer Rouge sought to maintain its radical communist state. Vietnam rapidly overthrew the Khmer Rouge, installing a pro-Vietnamese government, though Khmer Rouge resistance continued for years.",
     sides: {
       A: { name: "Cambodia / Khmer Rouge", scores: { leftRight: -1, imperialism: 0, revolutionary: 2, nationalist: 2, interventionist: -1 } },
       B: { name: "Vietnam", scores: { leftRight: -2, imperialism: 1, revolutionary: 1, nationalist: 0, interventionist: 2 } }
@@ -578,7 +578,7 @@ const questions = [
   {
     war: "Soviet-Afghan War",
     year: 1979,
-    summary: "The Soviet Union invaded Afghanistan in 1979 to support its communist government against the Mujahideen insurgency, which had been destabilizing the country. The Soviets sought to maintain a communist ally on their southern border, while the Mujahideen, backed by the US, Pakistan, Saudi Arabia, and others, sought to expel the Soviets and establish an Islamic government. The Soviets withdrew in 1989 after a decade of costly guerrilla warfare, contributing to the collapse of the Soviet Union.",
+    summary: "The Soviet Union invaded Afghanistan in 1979 to support its communist government against the Mujahideen insurgency. The Soviets sought to maintain a communist ally on their southern border, while the Mujahideen, backed by the US, Pakistan, and Saudi Arabia, sought to expel the Soviets and establish an Islamic government. The Soviets withdrew in 1989 after a decade of costly guerrilla warfare, contributing to the collapse of the Soviet Union.",
     sides: {
       A: { name: "Soviet Union", scores: { leftRight: -2, imperialism: 1, revolutionary: 1, nationalist: -1, interventionist: 2 } },
       B: { name: "Afghan Mujahideen", scores: { leftRight: 1, imperialism: -1, revolutionary: -1, nationalist: 2, interventionist: -2 } }
@@ -587,7 +587,7 @@ const questions = [
   {
     war: "Iran-Iraq War",
     year: 1980,
-    summary: "The Iran-Iraq War began when Iraq under Saddam Hussein invaded Iran, seeking to exploit post-revolutionary chaos, gain control of the Shatt al-Arab waterway, and prevent the spread of Iran's Islamic Revolution to Iraq's Shia population. Iran sought to repel the invasion and export its Islamic Revolution, while Iraq sought territorial gains and regional dominance. The war lasted eight years, caused over a million casualties, and ended inconclusively with a return to pre-war borders.",
+    summary: "The Iran-Iraq War began when Iraq under Saddam Hussein invaded Iran, seeking to exploit post-revolutionary chaos and gain control of the Shatt al-Arab waterway. Iran sought to repel the invasion and export its Islamic Revolution, while Iraq sought territorial gains and regional dominance. The war lasted eight years, caused over a million casualties, and ended inconclusively with a return to pre-war borders.",
     sides: {
       A: { name: "Iran", scores: { leftRight: 1, imperialism: -1, revolutionary: 1, nationalist: 1, interventionist: 1 } },
       B: { name: "Iraq", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 1, interventionist: 1 } }
@@ -596,7 +596,7 @@ const questions = [
   {
     war: "Salvadoran Civil War",
     year: 1980,
-    summary: "The Salvadoran Civil War was fought between the US-backed government of El Salvador and the FMLN, a coalition of left-wing guerrilla groups, amid extreme inequality and political repression. The FMLN sought to establish a socialist government and address poverty and land inequality, while the government sought to maintain the existing social order with US support. The war ended in 1992 with the Chapultepec Peace Accords, incorporating the FMLN into the political process.",
+    summary: "The Salvadoran Civil War was fought between the US-backed government of El Salvador and the FMLN, a coalition of left-wing guerrilla groups, amid extreme inequality and political repression. The FMLN sought to establish a socialist government and address poverty and land inequality, while the government sought to maintain the existing social order. The war ended in 1992 with the Chapultepec Peace Accords, incorporating the FMLN into the political process.",
     sides: {
       A: { name: "Salvadoran Government", scores: { leftRight: 1, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 0 } },
       B: { name: "FMLN", scores: { leftRight: -2, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: 0 } }
@@ -605,7 +605,7 @@ const questions = [
   {
     war: "Falklands War",
     year: 1982,
-    summary: "The Falklands War began when Argentina invaded and occupied the Falkland Islands, a British overseas territory in the South Atlantic, claiming sovereignty over what it called the Malvinas. Argentina sought to assert its territorial claim and the military junta used the invasion to boost domestic support, while Britain under Margaret Thatcher dispatched a naval task force to retake the islands. Britain recaptured the islands after ten weeks of fighting, and the defeat contributed to the collapse of Argentina's military government.",
+    summary: "The Falklands War began when Argentina invaded and occupied the Falkland Islands, a British overseas territory in the South Atlantic, claiming sovereignty over what it called the Malvinas. Britain dispatched a naval task force to retake the islands, while Argentina's military junta used the invasion to boost domestic support. Britain recaptured the islands after ten weeks of fighting, and the defeat contributed to the collapse of Argentina's military government.",
     sides: {
       A: { name: "Britain", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 0, interventionist: 2 } },
       B: { name: "Argentina", scores: { leftRight: 1, imperialism: 0, revolutionary: 0, nationalist: 2, interventionist: -2 } }
@@ -623,7 +623,7 @@ const questions = [
   {
     war: "Tiananmen Repression",
     year: 1989,
-    summary: "The Tiananmen Square protests were a pro-democracy movement led by students and workers in Beijing, calling for political reform, freedom of the press, and an end to corruption in the Communist Party. The Chinese government declared martial law and sent in the military to suppress the protests, while demonstrators sought political liberalization and accountability. The government crushed the movement, killing hundreds to thousands of protesters, and maintained Communist Party rule.",
+    summary: "The Tiananmen Square protests were a pro-democracy movement led by students and workers in Beijing, calling for political reform, freedom of the press, and an end to corruption in the Communist Party. The Chinese government declared martial law and sent in the military to suppress the protests, killing hundreds to thousands of demonstrators. The government maintained Communist Party rule and the event remains heavily censored in China.",
     sides: {
       A: { name: "China", scores: { leftRight: -1, imperialism: 0, revolutionary: -2, nationalist: 1, interventionist: 1 } },
       B: { name: "Protesters", scores: { leftRight: 0, imperialism: 0, revolutionary: 2, nationalist: 0, interventionist: -1 } }
@@ -641,7 +641,7 @@ const questions = [
   {
     war: "Gulf War",
     year: 1990,
-    summary: "The Gulf War began when Iraq under Saddam Hussein invaded and annexed Kuwait, citing historical territorial claims and grievances over Kuwaiti oil production exceeding OPEC quotas. A US-led international coalition intervened to liberate Kuwait, with the US also seeking to prevent Iraqi domination of Middle Eastern oil supplies. The coalition rapidly defeated Iraqi forces and liberated Kuwait but stopped short of overthrowing Saddam Hussein.",
+    summary: "The Gulf War began when Iraq under Saddam Hussein invaded and annexed Kuwait, citing historical territorial claims and grievances over Kuwaiti oil production. A US-led international coalition intervened to liberate Kuwait, also seeking to prevent Iraqi domination of Middle Eastern oil supplies. The coalition rapidly defeated Iraqi forces and liberated Kuwait but stopped short of overthrowing Saddam Hussein.",
     sides: {
       A: { name: "Iraq", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: 1, interventionist: 2 } },
       B: { name: "United States / Coalition", scores: { leftRight: 0, imperialism: 1, revolutionary: 0, nationalist: 0, interventionist: 2 } }
@@ -650,7 +650,7 @@ const questions = [
   {
     war: "Croatian War of Independence",
     year: 1991,
-    summary: "The Croatian War of Independence was fought as Croatia declared independence from Yugoslavia, triggering conflict with the Yugoslav People's Army and Croatian Serb forces who sought to remain part of a Serb-dominated Yugoslavia. Croatia sought internationally recognized independence, while Serbia and Croatian Serbs sought to carve out a Serbian enclave in Croatian territory. Croatia ultimately prevailed, retaking most occupied territory by 1995 with international recognition.",
+    summary: "The Croatian War of Independence was fought as Croatia declared independence from Yugoslavia, triggering conflict with the Yugoslav People's Army and Croatian Serb forces who sought to remain part of a Serb-dominated Yugoslavia. Croatia sought internationally recognized independence, while Serbia and Croatian Serbs sought to carve out a Serbian enclave in Croatian territory. Croatia ultimately prevailed, retaking most occupied territory by 1995.",
     sides: {
       A: { name: "Serbia", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 2, interventionist: 2 } },
       B: { name: "Croatia", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 2, interventionist: -2 } }
@@ -659,7 +659,7 @@ const questions = [
   {
     war: "Bosnian War",
     year: 1991,
-    summary: "The Bosnian War erupted when Bosnia declared independence from Yugoslavia, triggering conflict between Bosnian Serb forces backed by Serbia, Bosnian Croat forces backed by Croatia, and the Bosnian government. Bosnian Serbs sought to create a ethnically pure Serbian state and unite with Serbia, while the Bosnian government sought to maintain a multiethnic state. The war ended with the Dayton Agreement in 1995, dividing Bosnia between two entities and establishing an international protectorate.",
+    summary: "The Bosnian War erupted when Bosnia declared independence from Yugoslavia, triggering conflict between Bosnian Serb forces backed by Serbia, Bosnian Croat forces backed by Croatia, and the Bosnian government. Bosnian Serbs sought to create an ethnically pure Serbian state and unite with Serbia, while the Bosnian government sought to maintain a multiethnic state. The war ended with the Dayton Agreement in 1995, dividing Bosnia between two entities.",
     sides: {
       A: { name: "Serbia", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 2, interventionist: 2 } },
       B: { name: "Bosnia", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 2, interventionist: -2 } }
@@ -668,7 +668,7 @@ const questions = [
   {
     war: "Algerian Civil War",
     year: 1991,
-    summary: "The Algerian Civil War erupted when the military annulled elections that the Islamic Salvation Front was poised to win, triggering an armed insurgency by Islamist groups. The government sought to maintain secular military rule and suppress political Islam, while Islamist groups sought to establish an Islamic state. The government prevailed by the late 1990s, though the conflict caused over 100,000 deaths and left deep scars on Algerian society.",
+    summary: "The Algerian Civil War erupted when the military annulled elections that the Islamic Salvation Front was poised to win, triggering an armed insurgency by Islamist groups. The government sought to maintain secular military rule and suppress political Islam, while Islamist groups sought to establish an Islamic state. The government prevailed by the late 1990s, though the conflict caused over 100,000 deaths.",
     sides: {
       A: { name: "Algerian Government", scores: { leftRight: 0, imperialism: 0, revolutionary: -1, nationalist: 1, interventionist: 0 } },
       B: { name: "Islamists", scores: { leftRight: 1, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -1 } }
@@ -686,7 +686,7 @@ const questions = [
   {
     war: "First Chechen War",
     year: 1994,
-    summary: "The First Chechen War began when Russia invaded the breakaway republic of Chechnya to prevent its secession from the Russian Federation following Chechnya's declaration of independence in 1991. Russia sought to maintain its territorial integrity and prevent other regions from following suit, while Chechnya sought full independence. Russia suffered a humiliating military defeat and withdrew in 1996, granting Chechnya de facto independence until the Second Chechen War.",
+    summary: "The First Chechen War began when Russia invaded the breakaway republic of Chechnya to prevent its secession from the Russian Federation following Chechnya's declaration of independence in 1991. Russia sought to maintain its territorial integrity, while Chechnya sought full independence. Russia suffered a humiliating military defeat and withdrew in 1996, granting Chechnya de facto independence until the Second Chechen War.",
     sides: {
       A: { name: "Russia", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 0, interventionist: 2 } },
       B: { name: "Chechnya", scores: { leftRight: 0, imperialism: -1, revolutionary: 1, nationalist: 2, interventionist: -2 } }
@@ -695,7 +695,7 @@ const questions = [
   {
     war: "Second Congo War",
     year: 1998,
-    summary: "The Second Congo War, sometimes called Africa's World War, involved nine African nations and numerous armed groups fighting in the Democratic Republic of Congo over resources, political power, and ethnic rivalries. The Congolese government sought to maintain sovereignty while various rebel groups and neighboring states pursued their own agendas. The war caused over five million deaths, mostly from disease and starvation, and ended with the Sun City Agreement in 2002 though violence continued.",
+    summary: "The Second Congo War, sometimes called Africa's World War, involved nine African nations and numerous armed groups fighting in the Democratic Republic of Congo over resources, political power, and ethnic rivalries. The Congolese government sought to maintain sovereignty while various rebel groups and neighboring states pursued their own agendas. The war caused over five million deaths and ended with the Sun City Agreement in 2002 though violence continued.",
     sides: {
       A: { name: "Congo", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 1, interventionist: -1 } },
       B: { name: "Rebel Coalitions", scores: { leftRight: 0, imperialism: 0, revolutionary: 1, nationalist: 1, interventionist: 1 } }
@@ -704,7 +704,7 @@ const questions = [
   {
     war: "Kosovo War",
     year: 1998,
-    summary: "The Kosovo War was fought between Serbia and the Kosovo Liberation Army, representing the ethnic Albanian majority of Kosovo, who sought independence from Serbia following years of political repression. Serbia sought to maintain Kosovo as part of its territory and suppress the KLA insurgency, while Kosovo Albanians sought self-determination. NATO intervened with airstrikes against Serbia in 1999, forcing Serbian withdrawal and establishing a UN administration over Kosovo.",
+    summary: "The Kosovo War was fought between Serbia and the Kosovo Liberation Army representing the ethnic Albanian majority of Kosovo, who sought independence following years of political repression. Serbia sought to maintain Kosovo as part of its territory and suppress the KLA insurgency, while Kosovo Albanians sought self-determination. NATO intervened with airstrikes against Serbia in 1999, forcing Serbian withdrawal and establishing a UN administration over Kosovo.",
     sides: {
       A: { name: "Serbia", scores: { leftRight: 1, imperialism: 1, revolutionary: -1, nationalist: 2, interventionist: 2 } },
       B: { name: "Kosovo Albanians", scores: { leftRight: 0, imperialism: -1, revolutionary: 0, nationalist: 2, interventionist: -2 } }
@@ -713,6 +713,7 @@ const questions = [
 ];
 
 let current = 0;
+let lastAnswerIndex = null;
 
 let scores = {
   leftRight: 0,
@@ -760,6 +761,7 @@ function loadQuestion() {
     btn.style.background = colors[index];
 
     btn.onclick = () => {
+      lastAnswerIndex = index;
       applyScore(q, index);
       current++;
 
@@ -772,6 +774,28 @@ function loadQuestion() {
 
     container.appendChild(btn);
   });
+
+  if (current > 0) {
+    const backBtn = document.createElement("button");
+    backBtn.innerText = "← Back";
+    backBtn.style.cssText = "background:#9e9e9e; margin-top:10px; width:100%;";
+    backBtn.onclick = () => {
+      current--;
+      const prevQ = questions[current];
+      if (lastAnswerIndex !== null && lastAnswerIndex !== 3) {
+        const side = lastAnswerIndex < 3 ? "A" : "B";
+        const data = prevQ.sides[side].scores;
+        const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
+        const multiplier = multipliers[lastAnswerIndex];
+        for (let key in data) {
+          scores[key] -= data[key] * multiplier;
+        }
+      }
+      lastAnswerIndex = null;
+      loadQuestion();
+    };
+    container.appendChild(backBtn);
+  }
 
   const summaryEl = document.createElement("p");
   summaryEl.innerText = q.summary;
