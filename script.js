@@ -523,7 +523,7 @@ const questions = [
     war: "Indo-Pakistani War",
     year: 1965,
     importance: 2,
-    summary: "The Indo-Pakistani War of 1965 was a culmination of skirmishes that took place between April 1965 and September 1965 between Pakistan and India. The conflict began following Pakistan's Operation Gibraltar, which was designed to precipitate an insurgency against Indian rule in Jammu and Kashmir. India retaliated by launching a full-scale military attack on West Pakistan. The seventeen-day war caused thousands of casualties on both sides and witnessed the largest engagement of armored vehicles in warfare since World War II.",
+    summary: "The Indo-Pakistani War of 1965 was a culmination of skirmishes between Pakistan and India over Jammu and Kashmir. Pakistan launched Operation Gibraltar to precipitate an insurgency against Indian rule, while India retaliated with a full-scale military attack. The seventeen-day war caused thousands of casualties and ended in a UN-brokered ceasefire with both sides returning to pre-war positions.",
     sides: {
       A: { name: "India", scores: { leftRight: 0, imperialism: 0, revolutionary: 0, nationalist: 2, interventionist: 2 } },
       B: { name: "Pakistan", scores: { leftRight: 1, imperialism: 0, revolutionary: 0, nationalist: 2, interventionist: 2 } }
@@ -543,7 +543,7 @@ const questions = [
     war: "Nigerian Civil War",
     year: 1967,
     importance: 3,
-    summary: "The Nigerian Civil War, also known as the Biafran War, was fought between the Nigerian government and the secessionist state of Biafra, which sought independence for the Igbo people. The government sought to maintain a unified Nigerian state, while Biafra sought self-determination and protection from ethnic violence. The war ended with a government victory and the reintegration of Biafra, though it caused a massive humanitarian crisis and over a million deaths.",
+    summary: "The Nigerian Civil War was fought between the Nigerian government and the secessionist state of Biafra, which sought independence for the Igbo people. The government sought to maintain a unified Nigerian state, while Biafra sought self-determination and protection from ethnic violence. The war ended with a government victory and the reintegration of Biafra, though it caused a massive humanitarian crisis.",
     sides: {
       A: { name: "Nigeria", scores: { leftRight: 0, imperialism: 0, revolutionary: -1, nationalist: 3, interventionist: 0 } },
       B: { name: "Biafra", scores: { leftRight: 0, imperialism: 0, revolutionary: 2, nationalist: 3, interventionist: -2 } }
@@ -553,7 +553,7 @@ const questions = [
     war: "Cambodian Civil War",
     year: 1967,
     importance: 4,
-    summary: "The Cambodian Civil War was fought between the US-backed government of the Khmer Republic and the communist Khmer Rouge. The government sought to maintain its authority and prevent a communist takeover, while the Khmer Rouge sought to establish a radical agrarian socialist state. The war was exacerbated by the spillover of the Vietnam War and ended with a Khmer Rouge victory in 1975, leading to the Cambodian genocide.",
+    summary: "The Cambodian Civil War was fought between the US-backed government of the Khmer Republic and the communist Khmer Rouge. The government sought to maintain its authority and prevent a communist takeover, while the Khmer Rouge sought to establish a radical agrarian socialist state. The war ended with a Khmer Rouge victory in 1975, leading to the Cambodian genocide.",
     sides: {
       A: { name: "Lon Nol Government", scores: { leftRight: 3, imperialism: 1, revolutionary: -2, nationalist: 2, interventionist: 2 } },
       B: { name: "Khmer Rouge", scores: { leftRight: -3, imperialism: -1, revolutionary: 3, nationalist: 2, interventionist: -2 } }
@@ -696,8 +696,8 @@ const questions = [
     summary: "The Tiananmen Square protests were a pro-democracy movement led by students and workers in Beijing, calling for political reform, freedom of the press, and an end to corruption in the Communist Party. The Chinese government declared martial law and sent in the military to suppress the protests, killing hundreds to thousands of demonstrators. The government maintained Communist Party rule and the event remains heavily censored in China.",
     sides: {
       A: { name: "China", scores: { leftRight: -3, imperialism: 0, revolutionary: -3, nationalist: 2, interventionist: 2 } },
-      B: { name: "Protesters", scores: { leftRight: 3, imperialism: 0, revolutionary: 2, nationalist: 2, interventionist: 0} }
-     }
+      B: { name: "Protesters", scores: { leftRight: 3, imperialism: 0, revolutionary: 2, nationalist: 2, interventionist: 0 } }
+    }
   },
   {
     war: "Romanian Revolution",
@@ -802,7 +802,6 @@ let scores = {
   interventionist: 0
 };
 
-// Track max possible scores dynamically based on questions answered
 let maxPossible = {
   leftRight: 0,
   imperialism: 0,
@@ -820,6 +819,19 @@ const colors = [
   "#e53935",
   "#b71c1c"
 ];
+
+function calculateMaxPossible() {
+  for (let q of questions) {
+    const importance = q.importance || 1;
+    for (let key in maxPossible) {
+      const maxVal = Math.max(
+        Math.abs(q.sides.A.scores[key] || 0),
+        Math.abs(q.sides.B.scores[key] || 0)
+      );
+      maxPossible[key] += maxVal * importance;
+    }
+  }
+}
 
 function loadQuestion() {
   const q = questions[current];
@@ -883,42 +895,26 @@ function loadQuestion() {
 }
 
 function applyScore(q, index) {
+  if (index === 3) return;
   const importance = q.importance || 1;
-  
-  // If answer is NOT neutral, increase maxPossible
-  if (index !== 3) {
-    for (let key in maxPossible) {
-      const maxVal = Math.max(Math.abs(q.sides.A.scores[key] || 0), Math.abs(q.sides.B.scores[key] || 0));
-      maxPossible[key] += maxVal * importance;
-    }
-
-    const side = index < 3 ? "A" : "B";
-    const data = q.sides[side].scores;
-    const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
-    const multiplier = multipliers[index];
-
-    for (let key in data) {
-      scores[key] += (data[key] || 0) * multiplier * importance;
-    }
+  const side = index < 3 ? "A" : "B";
+  const data = q.sides[side].scores;
+  const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
+  const multiplier = multipliers[index];
+  for (let key in data) {
+    scores[key] += (data[key] || 0) * multiplier * importance;
   }
 }
 
 function undoScore(q, index) {
+  if (index === 3) return;
   const importance = q.importance || 1;
-  if (index !== 3) {
-    for (let key in maxPossible) {
-      const maxVal = Math.max(Math.abs(q.sides.A.scores[key] || 0), Math.abs(q.sides.B.scores[key] || 0));
-      maxPossible[key] -= maxVal * importance;
-    }
-
-    const side = index < 3 ? "A" : "B";
-    const data = q.sides[side].scores;
-    const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
-    const multiplier = multipliers[index];
-
-    for (let key in data) {
-      scores[key] -= (data[key] || 0) * multiplier * importance;
-    }
+  const side = index < 3 ? "A" : "B";
+  const data = q.sides[side].scores;
+  const multipliers = [1, 0.67, 0.33, 0, 0.33, 0.67, 1];
+  const multiplier = multipliers[index];
+  for (let key in data) {
+    scores[key] -= (data[key] || 0) * multiplier * importance;
   }
 }
 
@@ -961,7 +957,6 @@ function showResults() {
 
   const axisKeys = ["leftRight", "imperialism", "revolutionary", "nationalist", "interventionist"];
 
-  // Weights — leftRight and revolutionary are most ideologically defining
   const weights = {
     leftRight: 2.5,
     imperialism: 1,
@@ -987,12 +982,11 @@ function showResults() {
     return { name: ideology.name, distance };
   }).sort((a, b) => a.distance - b.distance);
 
-  // Convert distances to match percentages — closest = 100%
-  const maxDist = ranked[ranked.length - 1].distance;
-  const minDist = ranked[0].distance;
+  // Realistic percentage: based on absolute distance from a theoretical max distance
+  const maxPossibleDistance = axisKeys.reduce((sum, key) => sum + weights[key] * 4, 0);
   const top3 = ranked.slice(0, 3).map(r => ({
     name: r.name,
-    pct: Math.round(100 - ((r.distance - minDist) / (maxDist - minDist)) * 100)
+    pct: Math.round(Math.max(0, 100 - (r.distance / maxPossibleDistance) * 100))
   }));
 
   function axisLabel(pct, leftLabel, rightLabel) {
@@ -1001,7 +995,7 @@ function showResults() {
     return "Balanced";
   }
 
- function makeBar(pct, leftColor, rightColor, leftLabel, rightLabel, leftIcon, rightIcon) {
+  function makeBar(pct, leftColor, rightColor, leftLabel, rightLabel, leftIcon, rightIcon) {
     const right = (100 - pct).toFixed(1);
     const left = pct.toFixed(1);
     return `
@@ -1018,17 +1012,18 @@ function showResults() {
       </div>
     `;
   }
-function makeIdeologyBar(name, pct, rank) {
-    const colors = ["#c0392b", "#e67e22", "#95a5a6"];
+
+  function makeIdeologyBar(name, pct, rank) {
+    const barColors = ["#c0392b", "#e67e22", "#95a5a6"];
     const sizes = ["18px", "15px", "13px"];
     return `
       <div style="margin-bottom: 12px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
           <span style="font-weight:700; font-size:${sizes[rank]}; color:#111;">${name}</span>
-          <span style="font-weight:700; font-size:${sizes[rank]}; color:${colors[rank]};">${pct}%</span>
+          <span style="font-weight:700; font-size:${sizes[rank]}; color:${barColors[rank]};">${pct}%</span>
         </div>
         <div style="background:#ddd; height:10px; border-radius:6px; overflow:hidden;">
-          <div style="width:${pct}%; height:100%; background:${colors[rank]}; border-radius:6px;"></div>
+          <div style="width:${pct}%; height:100%; background:${barColors[rank]}; border-radius:6px;"></div>
         </div>
       </div>
     `;
@@ -1036,6 +1031,7 @@ function makeIdeologyBar(name, pct, rank) {
 
   document.getElementById("question").innerText = "Results";
   document.getElementById("progress").innerText = "Finished";
+
   document.getElementById("answers").innerHTML = `
     <div class="wv-results">
       <div class="wv-axis">${makeBar(leftRightPct, "#c0392b", "#3498db", "Right", "Left", "fa-solid fa-crown", "fa-solid fa-fist-raised")}</div>
@@ -1053,4 +1049,7 @@ function makeIdeologyBar(name, pct, rank) {
   `;
 }
 
-window.onload = loadQuestion;
+window.onload = () => {
+  calculateMaxPossible();
+  loadQuestion();
+};
