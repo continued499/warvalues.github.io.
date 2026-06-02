@@ -566,7 +566,7 @@ const questions = [
     summary: "The Troubles was an ethno-nationalist conflict in Northern Ireland between predominantly Catholic Irish republicans seeking unification with Ireland, and predominantly Protestant unionists seeking to remain part of the United Kingdom. Republican paramilitaries like the IRA carried out bombings and assassinations, while loyalist paramilitaries and British security forces responded with their own violence. The conflict ended with the Good Friday Agreement in 1998.",
     sides: {
       A: { name: "British State", scores: { leftRight: 1, imperialism: 2, revolutionary: -2, nationalist: -2, interventionist: 3 } },
-      B: { name: "Irish Republican Militants", scores: { leftRight: 0, imperialism: -3, revolutionary: 2, nationalist: 3, interventionist: -3 } }
+      B: { name: "Irish Republican Militants", scores: { leftRight: 0, imperialism: -3, revolutionary: 2, nationalist: 3, internetionist: -3 } }
     }
   },
   {
@@ -675,7 +675,7 @@ const questions = [
     importance: 3,
     summary: "The Falklands War began when Argentina invaded and occupied the Falkland Islands, a British overseas territory in the South Atlantic, claiming sovereignty over what it called the Malvinas. Britain dispatched a naval task force to retake the islands, while Argentina's military junta used the invasion to boost domestic support. Britain recaptured the islands after ten weeks of fighting, and the defeat contributed to the collapse of Argentina's military government.",
     sides: {
-      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: 1, interventionist: 3 } },
+      A: { name: "Britain", scores: { leftRight: 1, imperialism: 2, revolutionary: 0, nationalist: 1, internetionist: 3 } },
       B: { name: "Argentina", scores: { leftRight: 2, imperialism: -1, revolutionary: 0, nationalist: 3, interventionist: -3 } }
     }
   },
@@ -931,34 +931,35 @@ function toPercent(axis) {
 }
 
 function showResults() {
-const leftRightPct = toPercent("leftRight");
-const imperialismPct = toPercent("imperialism");
-const revolutionaryPct = toPercent("revolutionary");
-const nationalistPct = toPercent("nationalist");
-const interventionistPct = toPercent("interventionist");
+  const leftRightPct = toPercent("leftRight");
+  const imperialismPct = toPercent("imperialism");
+  const revolutionaryPct = toPercent("revolutionary");
+  const nationalistPct = toPercent("nationalist");
+  const interventionistPct = toPercent("interventionist");
 
+  // .trim() applied to fix trailing spacing data bugs
   const ideologies = [
-    { name: "Bolshevism               ", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist:  0, interventionist: -1 } },
-    { name: "Trotskyism               ", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist: -2, interventionist: -1 } },
-    { name: "Maoism                   ", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist:  2, interventionist: -1 } },
-    { name: "Marxism                  ", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist:  0, interventionist: -1 } },
-    { name: "Strasserism              ", scores: { leftRight:  0, imperialism:  0, revolutionary:  3, nationalist:  3, interventionist:  1 } },
-    { name: "National Bolshevism      ", scores: { leftRight:  1, imperialism: -2, revolutionary:  3, nationalist:  3, interventionist:  1 } },
-    { name: "Classical Fascism        ", scores: { leftRight:  2, imperialism:  2, revolutionary:  3, nationalist:  3, interventionist:  1 } },
-    { name: "National Socialism       ", scores: { leftRight:  1, imperialism:  2, revolutionary:  2, nationalist:  3, interventionist:  3 } },
-    { name: "Falangism                ", scores: { leftRight:  0, imperialism:  1, revolutionary:  3, nationalist:  3, interventionist: -1 } },
-    { name: "Clerical Fascism         ", scores: { leftRight:  1, imperialism:  2, revolutionary:  1, nationalist:  2, interventionist:  0 } },
-    { name: "Social Democracy         ", scores: { leftRight: -1, imperialism: -2, revolutionary: -1, nationalist:  0, interventionist:  1 } },
-    { name: "Liberal Internationalism ", scores: { leftRight:  0, imperialism: -1, revolutionary: -1, nationalist: -1, interventionist:  2 } },
-    { name: "Centrism                 ", scores: { leftRight:  0, imperialism:  0, revolutionary:  0, nationalist:  0, interventionist:  0 } },
-    { name: "Liberal Conservatism     ", scores: { leftRight:  1, imperialism:  0, revolutionary: -1, nationalist:  2, interventionist: -1 } },
-    { name: "Christian Democracy      ", scores: { leftRight:  1, imperialism:  1, revolutionary:  0, nationalist:  2, interventionist:  1 } },
-    { name: "Classical Conservatism   ", scores: { leftRight:  3, imperialism:  1, revolutionary: -3, nationalist:  3, interventionist: -1 } },
-    { name: "Reactionary              ", scores: { leftRight:  3, imperialism:  3, revolutionary: -3, nationalist:  3, interventionist:  0 } },
-    { name: "Paleoconservatism        ", scores: { leftRight:  3, imperialism: -3, revolutionary: -3, nationalist:  3, interventionist: -3 } },
-    { name: "Libertarianism           ", scores: { leftRight:  2, imperialism: -3, revolutionary: -3, nationalist:  1, interventionist: -3 } },
-    { name: "Neoconservatism          ", scores: { leftRight:  3, imperialism:  2, revolutionary: -3, nationalist:  3, interventionist:  3 } },
-    { name: "Neoliberalism            ", scores: { leftRight:  2, imperialism:  1, revolutionary: -2, nationalist:  1, interventionist:  2 } },
+    { name: "Bolshevism", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist:  0, interventionist: -1 } },
+    { name: "Trotskyism", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist: -2, interventionist: -1 } },
+    { name: "Maoism", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist:  2, interventionist: -1 } },
+    { name: "Marxism", scores: { leftRight: -3, imperialism: -2, revolutionary:  3, nationalist:  0, interventionist: -1 } },
+    { name: "Strasserism", scores: { leftRight:  0, imperialism:  0, revolutionary:  3, nationalist:  3, interventionist:  1 } },
+    { name: "National Bolshevism", scores: { leftRight:  1, imperialism: -2, revolutionary:  3, nationalist:  3, interventionist:  1 } },
+    { name: "Classical Fascism", scores: { leftRight:  2, imperialism:  2, revolutionary:  3, nationalist:  3, interventionist:  1 } },
+    { name: "National Socialism", scores: { leftRight:  1, imperialism:  2, revolutionary:  2, nationalist:  3, interventionist:  3 } },
+    { name: "Falangism", scores: { leftRight:  0, imperialism:  1, revolutionary:  3, nationalist:  3, interventionist: -1 } },
+    { name: "Clerical Fascism", scores: { leftRight:  1, imperialism:  2, revolutionary:  1, nationalist:  2, interventionist:  0 } },
+    { name: "Social Democracy", scores: { leftRight: -1, imperialism: -2, revolutionary: -1, nationalist:  0, interventionist:  1 } },
+    { name: "Liberal Internationalism", scores: { leftRight:  0, imperialism: -1, revolutionary: -1, nationalist: -1, interventionist:  2 } },
+    { name: "Centrism", scores: { leftRight:  0, imperialism:  0, revolutionary:  0, nationalist:  0, interventionist:  0 } },
+    { name: "Liberal Conservatism", scores: { leftRight:  1, imperialism:  0, revolutionary: -1, nationalist:  2, interventionist: -1 } },
+    { name: "Christian Democracy", scores: { leftRight:  1, imperialism:  1, revolutionary:  0, nationalist:  2, interventionist:  1 } },
+    { name: "Classical Conservatism", scores: { leftRight:  3, imperialism:  1, revolutionary: -3, nationalist:  3, interventionist: -1 } },
+    { name: "Reactionary", scores: { leftRight:  3, imperialism:  3, revolutionary: -3, nationalist:  3, interventionist:  0 } },
+    { name: "Paleoconservatism", scores: { leftRight:  3, imperialism: -3, revolutionary: -3, nationalist:  3, interventionist: -3 } },
+    { name: "Libertarianism", scores: { leftRight:  2, imperialism: -3, revolutionary: -3, nationalist:  1, interventionist: -3 } },
+    { name: "Neoconservatism", scores: { leftRight:  3, imperialism:  2, revolutionary: -3, nationalist:  3, interventionist:  3 } },
+    { name: "Neoliberalism", scores: { leftRight:  2, imperialism:  1, revolutionary: -2, nationalist:  1, interventionist:  2 } },
   ];
 
   const axisKeys = ["leftRight", "imperialism", "revolutionary", "nationalist", "interventionist"];
@@ -988,7 +989,6 @@ const interventionistPct = toPercent("interventionist");
     return { name: ideology.name, distance };
   }).sort((a, b) => a.distance - b.distance);
 
-  // Realistic percentage: based on absolute distance from a theoretical max distance
   const maxPossibleDistance = axisKeys.reduce((sum, key) => sum + weights[key] * 4, 0);
   const top3 = ranked.slice(0, 3).map(r => ({
     name: r.name,
@@ -1001,6 +1001,7 @@ const interventionistPct = toPercent("interventionist");
     return "Balanced";
   }
 
+  // Updated to hook cleanly into your new stylesheet properties
   function makeBar(pct, leftColor, rightColor, leftLabel, rightLabel, leftIcon, rightIcon) {
     const right = (100 - pct).toFixed(1);
     const left = pct.toFixed(1);
@@ -1009,27 +1010,27 @@ const interventionistPct = toPercent("interventionist");
         ${leftLabel} Axis: <span>${axisLabel(pct, leftLabel, rightLabel)}</span>
       </div>
       <div class="wv-bar-row">
-        <div class="wv-label-left"><i class="${leftIcon}"></i> ${leftLabel}</div>
+        <div class="wv-label-left"><i class="${leftIcon}"></i>${leftLabel}</div>
         <div class="wv-bar-wrap">
-          <div class="wv-bar-a" style="width:${left}%; background:${leftColor};">${left}%</div>
-          <div class="wv-bar-b" style="width:${right}%; background:${rightColor};">${right}%</div>
+          <div class="wv-bar-a" data-width="${left}" style="width: 0%; background:${leftColor};">${left}%</div>
+          <div class="wv-bar-b" data-width="${right}" style="width: 0%; background:${rightColor};">${right}%</div>
         </div>
-        <div class="wv-label-right">${rightLabel} <i class="${rightIcon}"></i></div>
+        <div class="wv-label-right">${rightLabel}<i class="${rightIcon}"></i></div>
       </div>
     `;
   }
 
+  // Updated to pull layout architecture patterns directly from your ideology classes
   function makeIdeologyBar(name, pct, rank) {
-    const barColors = ["#c0392b", "#e67e22", "#95a5a6"];
-    const sizes = ["18px", "15px", "13px"];
+    const fillColors = ["#c0392b", "#e67e22", "#95a5a6"];
     return `
-      <div style="margin-bottom: 12px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="font-weight:700; font-size:${sizes[rank]}; color:#111;">${name}</span>
-          <span style="font-weight:700; font-size:${sizes[rank]}; color:${barColors[rank]};">${pct}%</span>
+      <div class="wv-ideology-item">
+        <div class="wv-ideology-name-row">
+          <span class="wv-ideology-name">${name}</span>
+          <span class="wv-ideology-pct" style="color: ${fillColors[rank]};">${pct}%</span>
         </div>
-        <div style="background:#ddd; height:10px; border-radius:6px; overflow:hidden;">
-          <div style="width:${pct}%; height:100%; background:${barColors[rank]}; border-radius:6px;"></div>
+        <div class="wv-ideology-bar-bg">
+          <div class="wv-ideology-bar-fill" data-width="${pct}" style="width: 0%; background: ${fillColors[rank]};"></div>
         </div>
       </div>
     `;
@@ -1045,14 +1046,24 @@ const interventionistPct = toPercent("interventionist");
       <div class="wv-axis">${makeBar(revolutionaryPct, "#e74c3c", "#2c3e50", "Revolutionary", "Counterrevolutionary", "fa-solid fa-fire", "fa-solid fa-shield")}</div>
       <div class="wv-axis">${makeBar(nationalistPct, "#e67e22", "#16a085", "Nationalist", "Internationalist", "fa-solid fa-map", "fa-solid fa-earth-americas")}</div>
       <div class="wv-axis">${makeBar(interventionistPct, "#c0392b", "#7f8c8d", "Interventionist", "Isolationist", "fa-solid fa-jet-fighter", "fa-solid fa-house")}</div>
-      <div style="margin-top:1.5rem; padding:1rem; border:0.5px solid #ccc; border-radius:8px; background:#f9f9f9;">
-        <div style="font-size:13px; color:#666; margin-bottom:12px; font-weight:600;">Closest Ideological Matches</div>
+      
+      <div class="wv-ideology-card">
+        <div class="wv-ideology-header">Closest Ideological Matches</div>
         ${makeIdeologyBar(top3[0].name, top3[0].pct, 0)}
         ${makeIdeologyBar(top3[1].name, top3[1].pct, 1)}
         ${makeIdeologyBar(top3[2].name, top3[2].pct, 2)}
       </div>
     </div>
   `;
+
+  // Triggering visual sliding animations asynchronously post layout paint
+  setTimeout(() => {
+    const dynamicBars = document.querySelectorAll('.wv-bar-a, .wv-bar-b, .wv-ideology-bar-fill');
+    dynamicBars.forEach(bar => {
+      const targetWidth = bar.getAttribute('data-width');
+      bar.style.width = `${targetWidth}%`;
+    });
+  }, 50);
 }
 
 window.onload = () => {
